@@ -40,9 +40,9 @@ public class PlayerMovement : MonoBehaviour
     private float startYScale;
     
     [Header("Keybinds")]
-    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] private KeyCode sprintKey = KeyCode.RightAlt;
-    [SerializeField] private KeyCode crouchKey = KeyCode.Mouse2;
+    //[SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    //[SerializeField] private KeyCode sprintKey = KeyCode.RightAlt;
+    //[SerializeField] private KeyCode crouchKey = KeyCode.Mouse2;
     
     [Header("Orientation")] [SerializeField] private Transform orientation;
 
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Jump
-        if (Input.GetKey(jumpKey) && readyToJump && (grounded || gp.IsGrappling))
+        if (Input.GetButtonDown("Jump") && readyToJump && (grounded || gp.IsGrappling))
         {
             var old = jumpForce;
             if (gp.IsGrappling)
@@ -117,13 +117,13 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Crouch
-        if (Input.GetKeyDown(crouchKey))
+        if (Input.GetButton("Crouch"))
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
         }
         //Stop Crouch
-        if (!Input.GetKey(crouchKey) && !Physics.BoxCast(transform.position, transform.localScale / 2, Vector3.up, Quaternion.identity, playerHeigt + 0.2f))
+        if (!Input.GetButton("Crouch") && !Physics.BoxCast(transform.position, transform.localScale / 2, Vector3.up, Quaternion.identity, playerHeigt + 0.2f))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
@@ -131,12 +131,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        if (Input.GetKey(crouchKey))
+        if (Input.GetButton("Crouch"))
         {
             state = MovementState.CROUCHING;
             moveSpeed = crouchSpeed;
         }
-        if (grounded && Input.GetKey(sprintKey))
+        if (grounded && Input.GetButton("Sprint"))
         {
             state = MovementState.SPRINTING;
             moveSpeed = sprintSpeed;
