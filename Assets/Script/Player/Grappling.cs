@@ -22,11 +22,11 @@ public class Grappling : MonoBehaviour
 
     [Header("Cooldown")]
     [SerializeField] private float grapplingCd;
-    private float grapplingCdTimer;
+    [SerializeField] private float grapplingCdTimer;
 
     [Header(("Input"))] [SerializeField] private KeyCode grappleKey = KeyCode.Mouse1;
 
-    private bool IsGrappling;
+    public bool IsGrappling;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,14 +87,17 @@ public class Grappling : MonoBehaviour
         
         pm.JumpToPosition(grapplePoint,highestPointOnArc);
         
-        Invoke(nameof(StopGrapple), 1f);
+        Invoke(nameof(StopGrapple), 1f); // faire coroutine
     }
 
     public void StopGrapple()
     {
-        pm.freeze = false;
-        IsGrappling = false;
-        grapplingCdTimer = grapplingCd;
-        lr.enabled = false;
+        if (IsGrappling)
+        {
+            pm.freeze = false;
+            IsGrappling = false;
+            grapplingCdTimer = grapplingCd;
+            lr.enabled = false;
+        }
     }
 }

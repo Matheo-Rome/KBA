@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -60,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MovementState state;
     public enum MovementState
     {
-        FREEZE,
         WALKING,
         SPRINTING,
         CROUCHING,
@@ -101,9 +101,17 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && (grounded || gp.IsGrappling))
         {
+            var old = jumpForce;
+            if (gp.IsGrappling)
+            {
+                ResetRestriction();
+                // jumpForce *= 2;
+            }
+
             Jump();
+            jumpForce = old;
             readyToJump = false;
             Invoke(nameof(ResetJump), jumpCooldown);
         }
@@ -123,13 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        if (freeze)
-        {
-            state = MovementState.FREEZE;
-            moveSpeed = 0;
-            rb.velocity = Vector3.zero;
-        }
-        else if (Input.GetKey(crouchKey))
+        if (Input.GetKey(crouchKey))
         {
             state = MovementState.CROUCHING;
             moveSpeed = crouchSpeed;
@@ -177,6 +179,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
+       /* if (transform.position.y >= HighestPoint)
+        {
+            rb.AddForce(rb.velocity.normalized * grapplingBoost, ForceMode.Impulse);
+            HighestPoint = Mathf.Infinity;
+            ResetRestriction();
+        }*/
+
         if (activeGrapple)
             return;
         //limite speed on slope
@@ -232,6 +241,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetRestriction()
     {
         activeGrapple = false;
+        gp.StopGrapple();
         pc.DoFov(85f);
     }
     private void OnCollisionEnter(Collision collision)
