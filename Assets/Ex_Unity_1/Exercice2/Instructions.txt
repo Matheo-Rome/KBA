@@ -1,0 +1,5 @@
+Dans cette scène, des cibles sont présentes en enfant de l'objet "Targets".
+Chacune de ces cibles possèdent un Box Collider et se trouve sur le layer "Target".
+
+En modifiant uniquement le script Ex2_DestroyTargetsOnClick.cs présent sur la caméra, sans modifier quoi que ce soit à la scène, utilisez un raycast pour faire en sorte qu'un clic gauche sur une des cibles la détruisent.
+Ensuite, instanciez le prefab "FX_Explosion" à la position de l'objet détruit.
