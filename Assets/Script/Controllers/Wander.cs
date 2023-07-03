@@ -9,29 +9,41 @@ public class Wander : MonoBehaviour
     float elapsedTime   = 0f; //time since started walk
     float wait          = 0f; //wait this much time
     float waitTime      = 0f; //waited this much time
-    public float speed = 1f;
+    public float speed = 0.5f;
 
     float randomX;  //randomly go this X direction
     float randomZ;  //randomly go this Z direction
 
     bool move = true; //start moving
 
-    Vector3 pos;
+    Vector3 moveDirection;
+
+    
+
+    private string[] m_buttonNames = new string[] { "Idle", "Run", "Dead" };
+
+    private Animator m_animator;
 
     void Start(){
         randomX =  Random.Range(-3,3);
         randomZ = Random.Range(-3,3);
+        m_animator = GetComponent<Animator>();
+       // m_animator.SetInteger("AnimIndex", 1);
     }
 
     void Update ()
     {
+        if (moveDirection == Vector3.zero)
+            m_animator.SetFloat("Speed", 0);
+        else
+            m_animator.SetFloat("Speed", 1);
+
         if (elapsedTime < duration && move) 
         {
             //if its moving and didn't move too much
-            Vector3 movement = new Vector3(randomX,0,randomZ);
-            transform.Translate (movement * Time.deltaTime * speed);
-            transform.rotation = Quaternion.LookRotation(movement, Vector3.up);         
-    
+            moveDirection = new Vector3(randomX,0,randomZ);
+            transform.Translate (moveDirection * Time.deltaTime * speed);
+            transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);       
             elapsedTime += Time.deltaTime;
         } 
         else if (move)
@@ -40,20 +52,24 @@ public class Wander : MonoBehaviour
             move        = false;
             wait        = Random.Range (5, 10);
             waitTime    = 0f;
+            moveDirection = Vector3.zero;
         }
 
         if (waitTime < wait && !move) 
         {
             //you are waiting
+            
+            moveDirection = Vector3.zero;
             waitTime += Time.deltaTime;
         } 
         else if(!move)
         {
             move = true;
+            
+            moveDirection = Vector3.zero;
             elapsedTime = 0f;
             randomX = Random.Range(-3,3);
             randomZ = Random.Range(-3,3);
         }
-        pos = transform.position;
     }
 }
