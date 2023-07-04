@@ -18,6 +18,9 @@ public class Wander : MonoBehaviour
 
     Vector3 moveDirection;
 
+    Vector3 actualPos = Vector3.zero;
+    Vector3 oldPos = Vector3.zero;
+
     
 
     private string[] m_buttonNames = new string[] { "Idle", "Run", "Dead" };
@@ -36,14 +39,16 @@ public class Wander : MonoBehaviour
         if (moveDirection == Vector3.zero)
             m_animator.SetFloat("Speed", 0);
         else
-            m_animator.SetFloat("Speed", 1);
-
+            m_animator.SetFloat("Speed", 1);  
+        
+            
         if (elapsedTime < duration && move) 
         {
             //if its moving and didn't move too much
             moveDirection = new Vector3(randomX,0,randomZ);
+            actualPos = moveDirection;
             transform.Translate (moveDirection * Time.deltaTime * speed);
-            transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);       
+            transform.rotation = Quaternion.Slerp (a: transform.rotation, b: Quaternion.LookRotation (moveDirection), t: 1);
             elapsedTime += Time.deltaTime;
         } 
         else if (move)
@@ -71,5 +76,7 @@ public class Wander : MonoBehaviour
             randomX = Random.Range(-3,3);
             randomZ = Random.Range(-3,3);
         }
+
+        oldPos = moveDirection;
     }
 }
