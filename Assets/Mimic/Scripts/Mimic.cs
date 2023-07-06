@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MimicSpace
 {
@@ -49,6 +51,8 @@ namespace MimicSpace
         bool canCreateLeg = true;
 
         List<GameObject> availableLegPool = new List<GameObject>();
+
+        [SerializeField] private Renderer ren;
 
         [Tooltip("This must be updates as the Mimin moves to assure great leg placement")]
         public Vector3 velocity;
@@ -156,7 +160,8 @@ namespace MimicSpace
                 newLeg = Instantiate(legPrefab, transform.position, Quaternion.identity);
             }
             newLeg.SetActive(true);
-            newLeg.GetComponent<Leg>().Initialize(footPosition, legResolution, maxLegDistance, growCoef, myMimic, lifeTime);
+            Debug.Log(ren.material.color);
+            newLeg.GetComponent<Leg>().Initialize(footPosition, legResolution, maxLegDistance, growCoef, myMimic, lifeTime, ren.material.color);
             newLeg.transform.SetParent(myMimic.transform);
         }
 
