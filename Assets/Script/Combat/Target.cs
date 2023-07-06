@@ -6,10 +6,12 @@ public class Target : MonoBehaviour
     public float corruption = 50f;
     [SerializeField] private Renderer ren;
     public GameObject bunny;
+    GlobalAchievement ach;
 
     void Start()
     {
         ren.material.color = Color.black;
+        ach = FindObjectOfType<GlobalAchievement>();
     }
 
     public void TakeDamage(float amount)
@@ -19,6 +21,7 @@ public class Target : MonoBehaviour
         {
             case <= 0f:
                 Die();
+                ach.killed++;
                 break;
             case <= 10f:
                 ren.material.color = Color.magenta;
@@ -40,6 +43,7 @@ public class Target : MonoBehaviour
             case <= 0f:
                 Die();
                 Instantiate(bunny, transform.position, transform.rotation);
+                ach.saved++;
                 break;
             case <= 10f:
                 ren.material.color = Color.cyan;

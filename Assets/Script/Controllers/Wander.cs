@@ -36,12 +36,14 @@ public class Wander : MonoBehaviour
 
     void Update ()
     {
+        // Animation
         if (moveDirection == Vector3.zero)
             m_animator.SetFloat("Speed", 0);
         else
             m_animator.SetFloat("Speed", 1);  
         
-            
+        
+        // Movement
         if (elapsedTime < duration && move) 
         {
             //if its moving and didn't move too much
