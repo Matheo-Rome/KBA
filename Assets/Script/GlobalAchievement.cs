@@ -12,7 +12,7 @@ public class GlobalAchievement : MonoBehaviour
     public bool achActive = false;
     public GameObject achTitle;
     public GameObject achDesc;
-    public List<bool> achEvent;
+    List<bool> achEvent;
     List<bool> achUnlocked;
 
     // Stats Variable
@@ -20,13 +20,13 @@ public class GlobalAchievement : MonoBehaviour
     public int saved = 0;
 
     // Achievements images
-    public GameObject ach00Img;
-    
+    public List<GameObject> achImg;
+
     void Start()
     {
         achUnlocked = new List<bool>();
         achEvent = new List<bool>();
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i <= 1; i++)
         {
             achUnlocked.Add(false);
             achEvent.Add(false);
@@ -38,15 +38,17 @@ public class GlobalAchievement : MonoBehaviour
     {
         UpdateEvents();
         if (achEvent[0] && !achUnlocked[0])
-        {
-            StartCoroutine(Trigger00Ach());
-        }
+            StartCoroutine(TriggerAch(0, "First blood", "Kill a enemy"));
+        if (achEvent[1] && !achUnlocked[1])
+            StartCoroutine(TriggerAch(1, "It was a bunny?", "Save a enemy"));
     }
 
     void UpdateEvents()
     {
         if (killed != 0)
             achEvent[0] = true;
+        if (saved != 0)
+            achEvent[1] = true;
     }
 
     void ResetPanel()
@@ -56,20 +58,19 @@ public class GlobalAchievement : MonoBehaviour
         achDesc.GetComponent<TextMeshProUGUI>().text = "";
         achActive = false;
     }
-
-    IEnumerator Trigger00Ach()
+    
+    IEnumerator TriggerAch(int index, string Title, string Desc)
     {
         achActive = true;
-        achUnlocked[0] = true;
-        //PlayerPrefs.SetInt("Ach01", ach01Code);
+        achUnlocked[index] = true;
         achSound.Play();
-        ach00Img.SetActive(true);
-        achTitle.GetComponent<TextMeshProUGUI>().text = "First blood";
-        achDesc.GetComponent<TextMeshProUGUI>().text = "Kill a enemy";
+        achImg[index].SetActive(true);
+        achTitle.GetComponent<TextMeshProUGUI>().text = Title;
+        achDesc.GetComponent<TextMeshProUGUI>().text = Desc;
         achNote.SetActive(true);
         yield return new WaitForSeconds(7);
         // Resetting UI
         ResetPanel();
-        //ach01Img.SetActive(false);
+        achImg[index].SetActive(false);
     }
 }
