@@ -5,7 +5,90 @@ using UnityEngine;
 
 public class Wander : MonoBehaviour
 {
-	public float duration;    //the max time of a walking session (set to ten)
+    public float moveSpeed = 3f;
+    public float rotSpeed = 300f;
+
+    [SerializeField] private bool iswandering = false;
+    private bool isRotatingLeft = false;
+    private bool isRotatingRight = false;
+    private bool iswalking = false;
+
+    private string[] m_buttonNames = new string[] { "Idle", "Run", "Dead" };
+
+    private Animator m_animator;
+
+    private Rigidbody rb;
+    void Start(){
+        m_animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        // m_animator.SetInteger("AnimIndex", 1);
+    }
+ 
+    // Update is called once per frame
+    void Update () {
+        
+        
+        if (iswandering == false);
+        {
+            StartCoroutine(Wandering());
+        }
+        if(isRotatingRight == true)
+        {
+            rb.velocity = Vector3.zero;
+            transform.Rotate(transform.up * Time.deltaTime * rotSpeed);
+        }
+        else if (isRotatingLeft == true)
+        {
+            rb.velocity = Vector3.zero;
+            transform.Rotate(transform.up * Time.deltaTime * -rotSpeed);
+        }
+        else if(iswalking == true)
+        {
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }
+    }
+
+
+    IEnumerator Wandering()
+    {
+        if (!iswandering)
+        {
+            int rotTime = Random.Range(1, 2);
+            int rotateWait = Random.Range(1, 3);
+            int rotateLorR = Random.Range(0, 2);
+            int walkWait = Random.Range(1, 3);
+            int walkTime = Random.Range(3, 7);
+
+            iswandering = true;
+
+            yield return new WaitForSeconds(walkWait);
+            m_animator.SetFloat("Speed", 1);
+            iswalking = true;
+            
+            yield return new WaitForSeconds(walkTime);
+            iswalking = false; 
+            m_animator.SetFloat("Speed", 0);
+            
+            yield return new WaitForSeconds(rotateWait);
+            if (rotateLorR == 0)
+            { 
+                m_animator.SetFloat("Speed", 1);
+                isRotatingRight = true;
+            }
+            else 
+            {
+                m_animator.SetFloat("Speed", 1);
+                isRotatingLeft = true;
+            }
+
+            yield return new WaitForSeconds(rotTime);
+            m_animator.SetFloat("Speed", 0);
+            isRotatingLeft = false;
+            isRotatingRight = false;
+            iswandering = false;
+        }
+    }
+	/*public float duration;    //the max time of a walking session (set to ten)
     float elapsedTime   = 0f; //time since started walk
     float wait          = 0f; //wait this much time
     float waitTime      = 0f; //waited this much time
@@ -20,6 +103,8 @@ public class Wander : MonoBehaviour
 
     Vector3 actualPos = Vector3.zero;
     Vector3 oldPos = Vector3.zero;
+    [SerializeField] private CharacterController ch;
+    [SerializeField] private Rigidbody rb;
 
     
 
@@ -34,6 +119,8 @@ public class Wander : MonoBehaviour
        // m_animator.SetInteger("AnimIndex", 1);
     }
 
+    private Vector3 pos;
+    private bool changeDir = false;
     void Update ()
     {
         // Animation
@@ -49,8 +136,9 @@ public class Wander : MonoBehaviour
             //if its moving and didn't move too much
             moveDirection = new Vector3(randomX,0,randomZ);
             actualPos = moveDirection;
-            transform.Translate (moveDirection * Time.deltaTime * speed);
-            transform.rotation = Quaternion.Slerp (a: transform.rotation, b: Quaternion.LookRotation (moveDirection), t: 1);
+            transform.Translate(moveDirection * Time.deltaTime * speed);
+            Vector3 direction = rb.velocity.normalized;
+            transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(direction), Time.deltaTime * 2f );
             elapsedTime += Time.deltaTime;
         } 
         else if (move)
@@ -77,8 +165,10 @@ public class Wander : MonoBehaviour
             elapsedTime = 0f;
             randomX = Random.Range(-3,3);
             randomZ = Random.Range(-3,3);
+            pos = transform.position;
+            changeDir = true;
         }
 
         oldPos = moveDirection;
-    }
+    }*/
 }

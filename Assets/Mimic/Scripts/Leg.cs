@@ -43,12 +43,14 @@ namespace MimicSpace
         public float minOscillationSpeed;
         public float maxOscillationSpeed;
         float oscillationProgress;
+        
 
         public Color myColor;
 
-        public void Initialize(Vector3 footPosition, int legResolution, float maxLegDistance, float growCoef, Mimic myMimic, float lifeTime)
+        public void Initialize(Vector3 footPosition, int legResolution, float maxLegDistance, float growCoef,
+            Mimic myMimic, float lifeTime, Color color)
         {
-            myColor = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+            myColor = color; //new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
             this.footPosition = footPosition;
             this.legResolution = legResolution;
             this.maxLegDistance = maxLegDistance;
@@ -56,6 +58,7 @@ namespace MimicSpace
             this.myMimic = myMimic;
 
             this.legLine = GetComponent<LineRenderer>();
+            legLine.material.color = color;
             handles = new Vector3[handlesCount];
 
             // We initialize a bunch of random offsets for many aspects of the legs so every leg part is unique
@@ -115,8 +118,10 @@ namespace MimicSpace
             {
                 // Check is the body is in line of sight from the foot position, and initiates the retractation if it isn't
                 RaycastHit hit;
-                if (Physics.Linecast(footPosition, transform.position, out hit))
+                LayerMask mask = ~LayerMask.GetMask("WhatIsEnemy");
+                if (Physics.Linecast(footPosition, transform.position, out hit, mask))
                 {
+                   // Debug.Log(hit.transform.gameObject.layer);
                     growTarget = 0;
                 }
             }
