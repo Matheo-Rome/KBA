@@ -4,12 +4,11 @@ public class Target : MonoBehaviour
 {
     public float health = 30f;
     public float corruption = 50f;
-    Renderer ren;
+    [SerializeField] private Renderer ren;
     public GameObject bunny;
 
     void Start()
     {
-        ren = GetComponent<Renderer>();
         ren.material.color = Color.black;
     }
 

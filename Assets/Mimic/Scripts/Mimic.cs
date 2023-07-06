@@ -124,8 +124,10 @@ namespace MimicSpace
 
                 RaycastHit hit;
                 Physics.Raycast(newLegPosition + Vector3.up * 10f, -Vector3.up, out hit);
+            
                 Vector3 myHit = hit.point;
-                if (Physics.Linecast(transform.position, hit.point, out hit))
+                LayerMask mask = LayerMask.GetMask("WhatIsEnemy");
+                if (Physics.Linecast(transform.position, hit.point, out hit,mask))
                     myHit = hit.point;
 
                 float lifeTime = Random.Range(minLegLifetime, maxLegLifetime);
