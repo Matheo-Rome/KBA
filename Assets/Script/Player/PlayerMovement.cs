@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float sprintSpeed;
+    [SerializeField] private float swingSpeed;
 
 
     [SerializeField] private float groundDrag;
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     public enum MovementState
     {
         WALKING,
+        SWINGING,
         SPRINTING,
         CROUCHING,
         AIR,
@@ -69,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     
     public bool freeze;
     public bool activeGrapple;
+    public bool swinging;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -141,6 +144,11 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.SPRINTING;
             moveSpeed = sprintSpeed;
         }
+        else if (swinging)
+        {
+            state = MovementState.SWINGING;
+            moveSpeed = swingSpeed;
+        }
         else if (grounded)
         {
             state = MovementState.WALKING;
@@ -154,7 +162,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (activeGrapple)
+        rb.useGravity = !OnSlope();
+        
+        if (activeGrapple || swinging)
             return;
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -166,9 +176,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
 
-        rb.useGravity = !OnSlope();
-
-            // On ground
+        // On ground
         if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         
@@ -179,17 +187,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-       /* if (transform.position.y >= HighestPoint)
-        {
-            rb.AddForce(rb.velocity.normalized * grapplingBoost, ForceMode.Impulse);
-            HighestPoint = Mathf.Infinity;
-            ResetRestriction();
-        }*/
-
         if (activeGrapple)
             return;
         //limite speed on slope
-        if (OnSlope() && !exitingSlope)
+        if (OnSlope() && !exitingSlope && !swinging)
         {
             if (rb.velocity.magnitude > moveSpeed)
                 rb.velocity = rb.velocity.normalized * moveSpeed;
@@ -254,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeigt * 0.5f + 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeigt * 0.5f + 0.3f) && !swinging)
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;

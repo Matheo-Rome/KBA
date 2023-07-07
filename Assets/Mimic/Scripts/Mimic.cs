@@ -160,7 +160,6 @@ namespace MimicSpace
                 newLeg = Instantiate(legPrefab, transform.position, Quaternion.identity);
             }
             newLeg.SetActive(true);
-            Debug.Log(ren.material.color);
             newLeg.GetComponent<Leg>().Initialize(footPosition, legResolution, maxLegDistance, growCoef, myMimic, lifeTime, ren.material.color);
             newLeg.transform.SetParent(myMimic.transform);
         }
