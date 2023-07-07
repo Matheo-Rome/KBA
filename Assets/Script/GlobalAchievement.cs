@@ -18,6 +18,8 @@ public class GlobalAchievement : MonoBehaviour
     // Stats Variable
     public int killed = 0;
     public int saved = 0;
+    public int nb_grappling = 0;
+    public bool fiftyMeters = false;
 
     // Achievements images
     public List<GameObject> achImg;
@@ -26,7 +28,7 @@ public class GlobalAchievement : MonoBehaviour
     {
         achUnlocked = new List<bool>();
         achEvent = new List<bool>();
-        for (int i = 0; i <= 1; i++)
+        for (int i = 0; i <= 9; i++)
         {
             achUnlocked.Add(false);
             achEvent.Add(false);
@@ -41,6 +43,22 @@ public class GlobalAchievement : MonoBehaviour
             StartCoroutine(TriggerAch(0, "First blood", "Kill a enemy"));
         if (achEvent[1] && !achUnlocked[1])
             StartCoroutine(TriggerAch(1, "It was a bunny?", "Save a enemy"));
+        if (achEvent[2] && !achUnlocked[2])
+            StartCoroutine(TriggerAch(2, "On fire", "Kill 10 enemies"));
+        if (achEvent[3] && !achUnlocked[3])
+            StartCoroutine(TriggerAch(3, "Savior", "Save 10 enemies"));
+        if (achEvent[4] && !achUnlocked[4])
+            StartCoroutine(TriggerAch(4, "Genocide", "Kill all the enemies"));
+        if (achEvent[5] && !achUnlocked[5])
+            StartCoroutine(TriggerAch(5, "Pacifist", "Save all the enemies"));
+        if (achEvent[6] && !achUnlocked[6])       
+            StartCoroutine(TriggerAch(6, "Wassup gamer", "Play 5 minutes"));
+        if (achEvent[7] && !achUnlocked[7])       
+            StartCoroutine(TriggerAch(7, "Widowmaker", "Grappling"));
+        if (achEvent[8] && !achUnlocked[8])       
+            StartCoroutine(TriggerAch(8, "Attack on titan", "Grappling 50 times"));
+        if (achEvent[9] && !achUnlocked[9])       
+            StartCoroutine(TriggerAch(9, "High enough", "Fly at 100m"));
     }
 
     void UpdateEvents()
@@ -49,6 +67,20 @@ public class GlobalAchievement : MonoBehaviour
             achEvent[0] = true;
         if (saved != 0)
             achEvent[1] = true;
+        if (killed >= 10)
+            achEvent[2] = true;
+        if (saved >= 10)
+            achEvent[3] = true;
+        if (killed >= 50)
+            achEvent[4] = true;
+        if (saved >= 50)
+            achEvent[5] = true;
+        if (nb_grappling != 0)
+            achEvent[7] = true;
+        if (nb_grappling >= 50)
+            achEvent[8] = true;
+        if (fiftyMeters)
+            achEvent[9] = true;
     }
 
     void ResetPanel()
