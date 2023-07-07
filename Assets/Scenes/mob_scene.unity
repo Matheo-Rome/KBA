@@ -3607,6 +3607,7 @@ MonoBehaviour:
   extendedCableSpeed: 20
   predictionSphereCastRadius: 3
   predictionPoint: {fileID: 104850078}
+  gA: {fileID: 1602675053}
 --- !u!1 &1371020464
 GameObject:
   m_ObjectHideFlags: 0
