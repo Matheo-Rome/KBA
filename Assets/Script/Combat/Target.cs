@@ -1,3 +1,4 @@
+using MimicSpace;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -14,6 +15,16 @@ public class Target : MonoBehaviour
         ach = FindObjectOfType<GlobalAchievement>();
     }
 
+    private void changeLegColor(Color color)
+    {
+         var legs = gameObject.GetComponentsInChildren<Leg>();
+         foreach (var leg in legs)
+         {
+             leg.gameObject.GetComponent<LineRenderer>().material.color = color;
+         }
+    }
+        
+
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -25,12 +36,15 @@ public class Target : MonoBehaviour
                 break;
             case <= 10f:
                 ren.material.color = Color.magenta;
+                changeLegColor(Color.magenta);
                 break;
             case <= 20f:
                 ren.material.color = Color.red;
+                changeLegColor(Color.red);
                 break;    
             default:
                 ren.material.color = Color.black;
+                changeLegColor(Color.black);
                 break;
         }
     }
@@ -47,12 +61,15 @@ public class Target : MonoBehaviour
                 break;
             case <= 10f:
                 ren.material.color = Color.cyan;
+                changeLegColor(Color.cyan);
                 break;
             case <= 20f:
                 ren.material.color = Color.blue;
+                changeLegColor(Color.blue);
                 break;
             default:
                 ren.material.color = Color.black;
+                changeLegColor(Color.black);
                 break;
         }
     }

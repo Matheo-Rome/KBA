@@ -31,6 +31,8 @@ public class Swing : MonoBehaviour
     [SerializeField] private Transform predictionPoint;
     
     private Vector3 currentGrapplePosition;
+
+    [SerializeField] private GlobalAchievement gA;
     
     // Start is called before the first frame update
     void Start()
@@ -63,6 +65,7 @@ public class Swing : MonoBehaviour
         if (predictionHit.point == Vector3.zero)
             return;
 
+        gA.nb_grappling++;
         pm.swinging = true;
 
         swingPoint = predictionHit.point;
