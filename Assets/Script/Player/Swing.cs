@@ -14,11 +14,12 @@ public class Swing : MonoBehaviour
     [SerializeField] private Transform guntTip, cam, player;
     [SerializeField] private LayerMask whatIsGrappleable;
     [SerializeField] private PlayerMovement pm;
+    [SerializeField] private FuelBar fb;
 
     [Header("Swinging")]
     [SerializeField] private float maxSwingDsitance = 25f;
     private Vector3 swingPoint;
-    private SpringJoint joint;
+    public SpringJoint joint;
 
     [Header("Air")] 
     [SerializeField] private Transform orientation;
@@ -33,6 +34,9 @@ public class Swing : MonoBehaviour
     private Vector3 currentGrapplePosition;
 
     [SerializeField] private GlobalAchievement gA;
+
+    public int fuel = 8000;
+    public int maxfuel = 8000;
     
     // Start is called before the first frame update
     void Start()
@@ -51,7 +55,7 @@ public class Swing : MonoBehaviour
         
         CheckForSwingPoints();
         
-        if (joint)
+        if (joint && fuel > 0)
             AirMovement();
     }
 
@@ -108,27 +112,38 @@ public class Swing : MonoBehaviour
 
     private void AirMovement()
     {
+        
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         
         // go right
         if (Input.GetButton("Horizontal") && horizontalInput > 0)
+        {
+            fuel-=4;
             rb.AddForce(orientation.right * horizontalThrustForce * Time.deltaTime);
-        
+        }
+
 
         // go left
         if (Input.GetButton("Horizontal") && horizontalInput < 0)
+        {
+            fuel-=4;
             rb.AddForce(-orientation.right * horizontalThrustForce * Time.deltaTime);
+        }
 
         // go forward
         if (Input.GetButton("Vertical") && verticalInput > 0)
+        {
+            fuel -= 3;
             rb.AddForce((orientation.forward * horizontalThrustForce * Time.deltaTime));
-        
+        }
+
 
 
         // retract grapple
         if (Input.GetKey(KeyCode.Space))
         {
+            fuel-=6;
             Vector3 directionToPoint = swingPoint - transform.position;
             rb.AddForce(directionToPoint.normalized * fowardThrustForce * Time.deltaTime);
 
@@ -141,11 +156,19 @@ public class Swing : MonoBehaviour
         //extract grapple
         if (Input.GetButton("Vertical") && verticalInput < 0)
         {
+            fuel-=6;
             float extendedDistanceFromPoint = Vector3.Distance(transform.position, swingPoint) + extendedCableSpeed;
 
             joint.maxDistance = extendedDistanceFromPoint * 0.8f;
             joint.minDistance = extendedDistanceFromPoint * 0.25f;
         }
+        
+        fb.DecrementFuel(fuel);
+    }
+
+    public void IncrementFuel()
+    {
+        fb.IncrementFuel(fuel);
     }
 
     private void CheckForSwingPoints()

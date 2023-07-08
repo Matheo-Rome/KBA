@@ -10,6 +10,9 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Camera _camera;
 
     [SerializeField] private TMP_Text text;
+    [SerializeField] private Rigidbody bullet;
+    [SerializeField] private Transform gunTip;
+    [SerializeField] private float bulletSpeed = 500f;
 
     private int object_destroyed = 0;
     // Start is called before the first frame update
@@ -21,12 +24,16 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetButtonDown("Fire1"))
         {
+            Rigidbody spawnedBullet = Instantiate(bullet, gunTip.position, gunTip.rotation);
+            spawnedBullet.AddForce(gunTip.right * bulletSpeed);
+            
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
            
             RaycastHit hit;
             bool res = Physics.Raycast(ray, out hit);
+            
             if (res)
             {
                 object_destroyed++;

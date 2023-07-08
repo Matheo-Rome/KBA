@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     private bool readyToJump = true;
+    [SerializeField] private float fallMultiplier = 2.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
 
     [Header("Crouching")]
     [SerializeField] private float crouchSpeed;
@@ -52,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Grappling")]
     [SerializeField] private Grappling gp;
+    [SerializeField] private Swing sw;
+    
     private float horizontalInput;
     private float verticalInput;
 
@@ -92,9 +96,28 @@ public class PlayerMovement : MonoBehaviour
         StateHandler();
 
         if (grounded && !activeGrapple)
+        {
             rb.drag = groundDrag;
+            if (sw.fuel < sw.maxfuel)
+                sw.fuel+=6;
+        }
         else
+        {
+            if (sw.joint == null && sw.fuel < sw.maxfuel)
+                sw.fuel += 4;
             rb.drag = 0;
+        }
+        sw.IncrementFuel();
+        
+        
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * (Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime);
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector3.up * (Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime) ;
+        }
 
     }
 
