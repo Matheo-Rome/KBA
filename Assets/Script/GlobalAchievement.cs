@@ -12,7 +12,7 @@ public class GlobalAchievement : MonoBehaviour
     public bool achActive = false;
     public GameObject achTitle;
     public GameObject achDesc;
-    List<bool> achEvent;
+    public List<bool> achEvent;
     List<bool> achUnlocked;
 
     // Stats Variable
