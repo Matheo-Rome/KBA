@@ -64,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] private MovementState state;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource landSound;
+    [SerializeField] private AudioSource walkingSound;
     public enum MovementState
     {
         WALKING,
@@ -90,15 +95,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        var oldG = grounded;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeigt * 0.5f + 0.2f, whatIsGround);
+        if (!oldG && grounded)
+            landSound.Play();
         MyInput();
         SpeedControl();
         StateHandler();
+        
 
         if (grounded && !activeGrapple)
         {
             rb.drag = groundDrag;
-            if (sw.fuel < sw.maxfuel)
+            if (sw.fuel < sw.maxfuel && sw.joint == null)
                 sw.fuel+=6;
         }
         else
@@ -129,42 +138,20 @@ public class PlayerMovement : MonoBehaviour
         //Jump
         if (Input.GetButtonDown("Jump") && readyToJump && (grounded || gp.IsGrappling))
         {
-            var old = jumpForce;
-            if (gp.IsGrappling)
-            {
-                ResetRestriction();
-                // jumpForce *= 2;
-            }
-
             Jump();
-            jumpForce = old;
+            jumpSound.Play();
             readyToJump = false;
             Invoke(nameof(ResetJump), jumpCooldown);
-        }
-        
-        //Crouch
-        if (Input.GetButton("Crouch"))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        }
-        //Stop Crouch
-        if (!Input.GetButton("Crouch") && !Physics.BoxCast(transform.position, transform.localScale / 2, Vector3.up, Quaternion.identity, playerHeigt + 0.2f))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
     }
 
     private void StateHandler()
     {
-        if (Input.GetButton("Crouch"))
-        {
-            state = MovementState.CROUCHING;
-            moveSpeed = crouchSpeed;
-        }
+
         if (grounded && Input.GetButton("Sprint"))
         {
             state = MovementState.SPRINTING;
+            walkingSound.pitch = 2f;
             moveSpeed = sprintSpeed;
         }
         else if (swinging)
@@ -175,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
         else if (grounded)
         {
             state = MovementState.WALKING;
+            walkingSound.pitch = 1.5f;
             moveSpeed = walkSpeed;
         }
         else
@@ -201,11 +189,29 @@ public class PlayerMovement : MonoBehaviour
 
         // On ground
         if (grounded)
+        {
+            if (moveDirection.normalized != Vector3.zero)
+            {
+                var wasPlaying = walkingSound.loop;
+                walkingSound.loop = true;
+                if (!wasPlaying)
+                    walkingSound.Play();
+                
+            }
+            else
+            {
+                walkingSound.Stop();
+                walkingSound.loop = false;
+            }
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-        
+        }
         // In air
-        else  if (!grounded)
+        else if (!grounded)
+        {
+            walkingSound.Stop();
+            walkingSound.loop = false;
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
     }
 
     private void SpeedControl()

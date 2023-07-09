@@ -6,6 +6,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
+    public float heal;
+    public bool Dmg = true;
+    private bool alreaydHit = false;
 
     [SerializeField] private GameObject impact;
     // Start is called before the first frame update
@@ -20,16 +23,21 @@ public class Bullet : MonoBehaviour
     {
         
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || alreaydHit)
             return;
-        var createdImpact = Instantiate(impact, other.transform.position, Quaternion.identity);
+        alreaydHit = true;
+        var createdImpact = Instantiate(impact, transform.position, Quaternion.identity);
         var target = other.gameObject.GetComponent<Target>();
-        if(target) 
-            target.TakeDamage(damage);
-        Destroy(gameObject);
-        Destroy(createdImpact, 0.5f);
+        if (target)
+            if (Dmg)
+                target.TakeDamage(damage);
+            else
+                target.TakeHealing(heal);
+                 
+
+    Destroy(gameObject);
     }
 }

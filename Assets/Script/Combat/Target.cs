@@ -8,6 +8,7 @@ public class Target : MonoBehaviour
     [SerializeField] private Renderer ren;
     public GameObject bunny;
     GlobalAchievement ach;
+    private bool spawnedB = false;
 
     void Start()
     {
@@ -55,11 +56,16 @@ public class Target : MonoBehaviour
         switch (corruption)
         {
             case <= 0f:
-                Die();
-                Instantiate(bunny, transform.position, transform.rotation);
-                ach.saved++;
+                if (!spawnedB)
+                {
+                    spawnedB = true;
+                    Instantiate(bunny, transform.position, transform.rotation);
+                    ach.saved++;
+                    Die();
+                }
+
                 break;
-            case <= 10f:
+                case <= 10f:
                 ren.material.color = Color.cyan;
                 changeLegColor(Color.cyan);
                 break;

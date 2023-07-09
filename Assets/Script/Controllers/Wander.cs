@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class Wander : MonoBehaviour
@@ -18,9 +20,12 @@ public class Wander : MonoBehaviour
     private Animator m_animator;
 
     private Rigidbody rb;
-    void Start(){
+
+    private void Awake()
+    {
         m_animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        iswandering = false;
         // m_animator.SetInteger("AnimIndex", 1);
     }
  
