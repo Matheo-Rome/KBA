@@ -9,11 +9,10 @@ public class GlobalAchievement : MonoBehaviour
     // Panel Variable
     public GameObject achNote;
     public AudioSource achSound;
-    public bool achActive = false;
     public GameObject achTitle;
     public GameObject achDesc;
     public List<bool> achEvent;
-    List<bool> achUnlocked;
+    public List<bool> achUnlocked;
 
     // Stats Variable
     public int killed = 0;
@@ -88,12 +87,10 @@ public class GlobalAchievement : MonoBehaviour
         achNote.SetActive(false);
         achTitle.GetComponent<TextMeshProUGUI>().text = "";
         achDesc.GetComponent<TextMeshProUGUI>().text = "";
-        achActive = false;
     }
     
     IEnumerator TriggerAch(int index, string Title, string Desc)
     {
-        achActive = true;
         achUnlocked[index] = true;
         achSound.Play();
         achImg[index].SetActive(true);
