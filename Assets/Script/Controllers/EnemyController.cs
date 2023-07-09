@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public bool following = false;
     private bool alreadyAttacked = false;
 
+    public GameObject scoreboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +51,12 @@ public class EnemyController : MonoBehaviour
                   if (!alreadyAttacked)
                   {
                       Debug.Log("Oh no you taking damages !");
+                      scoreboard.SetActive(true);
                       var createdSlash = Instantiate(slash, transform.position, Quaternion.identity);
                       createdSlash.transform.forward = transform.forward;
                       alreadyAttacked = true;
                       Invoke(nameof(ResetAttack), timeBetweenAttackes);
+
                   }
 
               }
