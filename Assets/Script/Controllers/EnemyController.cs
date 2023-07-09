@@ -56,15 +56,6 @@ public class EnemyController : MonoBehaviour
                   }
 
               }
-
-              /*RaycastHit hit;
-              if (Physics.SphereCast(gameObject.transform.position, attackRange, transform.forward, out hit, 15,
-                  whatIsAttackable))
-              {
-                  Debug.Log("Oh no you taking damages !");
-                  var createdSlash = Instantiate(slash, transform.position, Quaternion.identity);
-                  createdSlash.transform.forward = hit.transform.forward;
-              }*/
           }
     }
 

@@ -11,6 +11,11 @@ public class Gun : MonoBehaviour
     [SerializeField] private float bulletSpeed = 5f;
     private Color HealColor;
     [SerializeField] private Color DmgColor;
+    [SerializeField] private Material DmgMat;
+    [SerializeField] private Material HealMat;
+    [SerializeField] private GameObject AuraShere;
+    [SerializeField] private GameObject HealPart;
+    [SerializeField] private GameObject DmgPart;
     
     
     [Header("Bullet")]
@@ -55,6 +60,9 @@ public class Gun : MonoBehaviour
     {
         mr.material.color  = DmgColor;
         dmgSound.Play();
+        DmgPart.SetActive(true);
+        HealPart.SetActive(false);
+        AuraShere.GetComponent<MeshRenderer>().material = DmgMat;
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
         RaycastHit hit;
@@ -83,6 +91,9 @@ public class Gun : MonoBehaviour
     void Heal()
     {
         mr.material.color = HealColor;
+        DmgPart.SetActive(false);
+        HealPart.SetActive(true);
+        AuraShere.GetComponent<MeshRenderer>().material = HealMat;
         healSound.Play();
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 

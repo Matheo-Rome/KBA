@@ -119,7 +119,7 @@ public class Swing : MonoBehaviour
         // go right
         if (Input.GetButton("Horizontal") && horizontalInput > 0)
         {
-            fuel-=4;
+            fuel-=3;
             rb.AddForce(orientation.right * horizontalThrustForce * Time.deltaTime);
         }
 
@@ -127,7 +127,7 @@ public class Swing : MonoBehaviour
         // go left
         if (Input.GetButton("Horizontal") && horizontalInput < 0)
         {
-            fuel-=4;
+            fuel-=3;
             rb.AddForce(-orientation.right * horizontalThrustForce * Time.deltaTime);
         }
 
@@ -135,7 +135,7 @@ public class Swing : MonoBehaviour
         if (Input.GetButton("Vertical") && verticalInput > 0)
         {
             fuel -= 3;
-            rb.AddForce((orientation.forward * horizontalThrustForce * Time.deltaTime));
+            rb.AddForce((orientation.forward * fowardThrustForce * Time.deltaTime));
         }
 
 
@@ -143,7 +143,7 @@ public class Swing : MonoBehaviour
         // retract grapple
         if (Input.GetKey(KeyCode.Space))
         {
-            fuel-=6;
+            fuel-=5;
             Vector3 directionToPoint = swingPoint - transform.position;
             rb.AddForce(directionToPoint.normalized * fowardThrustForce * Time.deltaTime);
 

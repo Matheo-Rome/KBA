@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float grappleFOV = 95f;
 
     [Header("Grappling")]
-    [SerializeField] private Grappling gp;
+    //[SerializeField] private Grappling gp;
     [SerializeField] private Swing sw;
     
     private float horizontalInput;
@@ -121,10 +121,10 @@ public class PlayerMovement : MonoBehaviour
         
         if (rb.velocity.y < 0)
         {
-            rb.velocity += Vector3.up * (Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime);
+           rb.velocity += Vector3.up * (Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime);
         }
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
+        { 
             rb.velocity += Vector3.up * (Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime) ;
         }
 
@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Jump
-        if (Input.GetButtonDown("Jump") && readyToJump && (grounded || gp.IsGrappling))
+        if (Input.GetButtonDown("Jump") && readyToJump && (grounded /*|| gp.IsGrappling*/))
         {
             Jump();
             jumpSound.Play();
@@ -210,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
         {
             walkingSound.Stop();
             walkingSound.loop = false;
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            //rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
 
@@ -271,7 +271,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetRestriction()
     {
         activeGrapple = false;
-        gp.StopGrapple();
+        //gp.StopGrapple();
         pc.DoFov(85f);
     }
     private void OnCollisionEnter(Collision collision)
@@ -279,7 +279,7 @@ public class PlayerMovement : MonoBehaviour
         if (enableMovementOnNextTouch)
             enableMovementOnNextTouch = false;
         ResetRestriction();
-        gp.StopGrapple();
+
     }
 
     private bool OnSlope()
