@@ -38,6 +38,7 @@ public class Swing : MonoBehaviour
     public int fuel = 8000;
     public int maxfuel = 8000;
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +80,7 @@ public class Swing : MonoBehaviour
         joint.connectedAnchor = swingPoint;
 
         float distanceFromPoint = Vector3.Distance(player.position, swingPoint);
+        gameObject.transform.LookAt(predictionPoint);
 
         // Joint values
         joint.maxDistance = distanceFromPoint * 0.8f;
