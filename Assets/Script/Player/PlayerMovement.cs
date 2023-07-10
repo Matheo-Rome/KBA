@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Slope Handling")] 
     [SerializeField] private float maxSlopeAngle;
+    [SerializeField] private float minSlopeAngle;
     private RaycastHit slopeHit;
     private bool exitingSlope;
     
@@ -170,19 +171,19 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         //when on Slope deactivate gravity (we "simulate it")
-        rb.useGravity = !OnSlope();
+       // rb.useGravity = !OnSlope();
         
         if (activeGrapple || swinging)
             return;
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         //On slope : push the player in the direction of the slope (so he slides)
-        if (OnSlope() && !exitingSlope)
+       /* if (OnSlope() && !exitingSlope)
         {
             rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-        }
+        }*/
 
         // On ground : juste play the walking sound and push into the desired direction
         if (grounded)
@@ -216,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
         if (activeGrapple)
             return;
         //limite speed on slope
-        if (OnSlope() && !exitingSlope && !swinging && grounded)
+        if (OnSlope() && !exitingSlope && !swinging && grounded && false)
         {
             if (rb.velocity.magnitude > moveSpeed)
                 rb.velocity = rb.velocity.normalized * moveSpeed;
@@ -251,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeigt * 0.5f + 0.3f) && !swinging)
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            return angle < maxSlopeAngle && angle != 0;
+            return angle < maxSlopeAngle && angle != 0 && angle > minSlopeAngle;
         }
 
         return false;
