@@ -31,7 +31,7 @@ public class Swing : MonoBehaviour
     [Header("Prediction")] 
     [SerializeField] private RaycastHit predictionHit;
     [SerializeField] private float predictionSphereCastRadius;
-    [SerializeField] private Transform predictionPoint;
+   // [SerializeField] private Transform predictionPoint;
     private Vector3 currentGrapplePosition;
 
     [Header("Values")]
@@ -54,7 +54,7 @@ public class Swing : MonoBehaviour
         if(Input.GetKeyUp((swingKey)))
              StopSwing();
         
-        CheckForSwingPoints();
+        //CheckForSwingPoints();
         
         if (joint && fuel > 0)
             AirMovement();
@@ -67,7 +67,16 @@ public class Swing : MonoBehaviour
 
     private void StartSwing()
     {
-        if (predictionHit.point == Vector3.zero)
+        RaycastHit raycastHit;
+        
+        Physics.Raycast(cam.position, cam.forward, out raycastHit, maxSwingDsitance, whatIsGrappleable);
+
+        //Keep the hit point if there is one
+        if (raycastHit.point != Vector3.zero)
+        {
+            predictionHit = raycastHit;
+        }
+        else
             return;
 
         gA.nb_grappling++;
@@ -80,7 +89,7 @@ public class Swing : MonoBehaviour
         joint.connectedAnchor = swingPoint;
 
         float distanceFromPoint = Vector3.Distance(player.position, swingPoint);
-        gameObject.transform.LookAt(predictionPoint);
+        //gameObject.transform.LookAt(predictionPoint);
 
         // Joint values
         joint.maxDistance = distanceFromPoint * 0.8f;
@@ -196,7 +205,7 @@ public class Swing : MonoBehaviour
             realHitPoint = raycastHit.point;
             predictionHit = raycastHit;
         }
-        else
+        /*else
         {
             //SphereCast to get the closest point from our camera to be the hit point
             Physics.SphereCast(cam.position, predictionSphereCastRadius, cam.forward, out sphereCastHit, maxSwingDsitance,
@@ -215,7 +224,7 @@ public class Swing : MonoBehaviour
             predictionPoint.position = realHitPoint;
         }
         else
-            predictionPoint.gameObject.SetActive(false);
+            predictionPoint.gameObject.SetActive(false);*/
 
     }
 }
