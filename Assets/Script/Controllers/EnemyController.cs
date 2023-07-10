@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         target = PlayerManager.instance.player.transform;
-        agent = GetComponent<NavMeshAgent>();  
+        agent = GetComponent<NavMeshAgent>(); 
     }
 
     // Update is called once per frame

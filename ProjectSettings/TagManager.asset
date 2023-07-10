@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Leg
+  - Scoboard
+  - Bunny
+  - Scoreboard
   layers:
   - Default
   - TransparentFX

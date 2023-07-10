@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
     public float health = 30f;
     public float corruption = 50f;
     [SerializeField] private Renderer ren;
-    public GameObject bunny;
+    GameObject bunny;
     GlobalAchievement ach;
     private bool spawnedB = false;
 
@@ -14,6 +14,7 @@ public class Target : MonoBehaviour
     {
         ren.material.color = Color.black;
         ach = FindObjectOfType<GlobalAchievement>();
+        bunny = GameObject.FindGameObjectWithTag("Bunny");
     }
 
     //Change the already instantiated legs color of the enemy 
