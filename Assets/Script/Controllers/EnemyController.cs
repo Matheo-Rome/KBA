@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //try to go toward the target (the player) but only if in sight range (else start wandering see "WanderingHostile.cs")
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= lookRadius)
@@ -44,8 +45,10 @@ public class EnemyController : MonoBehaviour
 
           if (following)
           {
+              //if the player is in sight range check if he is in attack range
               if (Physics.CheckSphere(transform.position, attackRange, whatIsAttackable))
               {
+                  //Launch an attack and instantiate effect;
                   agent.SetDestination(target.position);
                   transform.LookAt(target);
                   if (!alreadyAttacked)

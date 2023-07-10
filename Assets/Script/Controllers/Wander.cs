@@ -31,8 +31,7 @@ public class Wander : MonoBehaviour
  
     // Update is called once per frame
     void Update () {
-        
-        
+        // apply the desired movement or start the coroutine if not started
         if (iswandering == false);
         {
             StartCoroutine(Wandering());
@@ -54,6 +53,7 @@ public class Wander : MonoBehaviour
     }
 
 
+    //Make the entity walk, wait, turn,wait with random timing
     IEnumerator Wandering()
     {
         if (!iswandering)

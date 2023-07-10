@@ -7,7 +7,8 @@ using UnityEngine;
 public class Swing : MonoBehaviour
 {
 
-    [Header("input")] [SerializeField] private KeyCode swingKey = KeyCode.Mouse0;
+    [Header("input")] 
+    [SerializeField] private KeyCode swingKey = KeyCode.Mouse0;
 
     [Header("References")] 
     [SerializeField] private LineRenderer lr;
@@ -15,6 +16,7 @@ public class Swing : MonoBehaviour
     [SerializeField] private LayerMask whatIsGrappleable;
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private FuelBar fb;
+    [SerializeField] private GlobalAchievement gA;
 
     [Header("Swinging")]
     [SerializeField] private float maxSwingDsitance = 25f;
@@ -30,11 +32,9 @@ public class Swing : MonoBehaviour
     [SerializeField] private RaycastHit predictionHit;
     [SerializeField] private float predictionSphereCastRadius;
     [SerializeField] private Transform predictionPoint;
-    
     private Vector3 currentGrapplePosition;
 
-    [SerializeField] private GlobalAchievement gA;
-
+    [Header("Values")]
     public int fuel = 8000;
     public int maxfuel = 8000;
     
@@ -72,6 +72,7 @@ public class Swing : MonoBehaviour
         gA.nb_grappling++;
         pm.swinging = true;
 
+        //Create a Spring joint between the tip of the grapplin and the targeted point
         swingPoint = predictionHit.point;
         joint = player.gameObject.AddComponent<SpringJoint>();
         joint.autoConfigureConnectedAnchor = false;
@@ -79,13 +80,15 @@ public class Swing : MonoBehaviour
 
         float distanceFromPoint = Vector3.Distance(player.position, swingPoint);
 
+        // Joint values
         joint.maxDistance = distanceFromPoint * 0.8f;
         joint.minDistance = distanceFromPoint * 0.25f;
-
+        
         joint.spring = 4.5f;
         joint.damper = 7f;
         joint.massScale = 4.5f;
 
+        //Give two slot to the line renderer
         lr.positionCount = 2;
         currentGrapplePosition = guntTip.position;
     
@@ -95,6 +98,7 @@ public class Swing : MonoBehaviour
     private void StopSwing()
     {
         pm.swinging = false;
+        // Remove the points from the line renderer
         lr.positionCount = 0;
         Destroy(joint);
     }
@@ -110,9 +114,9 @@ public class Swing : MonoBehaviour
         lr.SetPosition(1, swingPoint);
     }
 
+    //Allow for nice movement while swinging at cost of "Fuel/Magic"
     private void AirMovement()
     {
-        
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         
@@ -170,7 +174,7 @@ public class Swing : MonoBehaviour
     {
         fb.IncrementFuel(fuel);
     }
-
+    
     private void CheckForSwingPoints()
     {
         if (joint != null)
@@ -181,8 +185,10 @@ public class Swing : MonoBehaviour
         
         Vector3 realHitPoint = Vector3.zero;
         
+        //Test if we have a grappleable collider in line of sight 
         Physics.Raycast(cam.position, cam.forward, out raycastHit, maxSwingDsitance, whatIsGrappleable);
 
+        //Keep the hit point if there is one
         if (raycastHit.point != Vector3.zero)
         {
             realHitPoint = raycastHit.point;
@@ -190,6 +196,7 @@ public class Swing : MonoBehaviour
         }
         else
         {
+            //SphereCast to get the closest point from our camera to be the hit point
             Physics.SphereCast(cam.position, predictionSphereCastRadius, cam.forward, out sphereCastHit, maxSwingDsitance,
                 whatIsGrappleable);
             if (sphereCastHit.point != Vector3.zero)
@@ -199,15 +206,14 @@ public class Swing : MonoBehaviour
             }
         }
 
+        //if we have a hit point activate the point
         if (realHitPoint != Vector3.zero)
         {
             predictionPoint.gameObject.SetActive(true);
             predictionPoint.position = realHitPoint;
         }
         else
-        {
             predictionPoint.gameObject.SetActive(false);
-        }
 
     }
 }

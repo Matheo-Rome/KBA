@@ -18,17 +18,6 @@ public class FuelBar : MonoBehaviour
         slider.value = sw.fuel;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     public void IncrementFuel(float newFuel)
     {
         slider.value = newFuel;

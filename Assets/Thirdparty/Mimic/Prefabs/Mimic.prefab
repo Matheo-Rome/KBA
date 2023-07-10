@@ -11,7 +11,14 @@ GameObject:
   - component: {fileID: 8675915457954794082}
   - component: {fileID: 8675915457954794083}
   - component: {fileID: 608258904}
-  m_Layer: 0
+  - component: {fileID: 1251302217}
+  - component: {fileID: 1251302232}
+  - component: {fileID: 1251302240}
+  - component: {fileID: 1251302229}
+  - component: {fileID: 1251302230}
+  - component: {fileID: 1251302231}
+  - component: {fileID: 1251302236}
+  m_Layer: 6
   m_Name: Mimic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 8675915457954794080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8675915458194695970}
@@ -47,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legPrefab: {fileID: 1682633662898237459, guid: fb7bce2dee9494540a1866bb5d230a51, type: 3}
-  numberOfLegs: 5
+  numberOfLegs: 6
   partsPerLeg: 4
   legCount: 0
   deployedLegs: 0
@@ -59,11 +66,12 @@ MonoBehaviour:
   newLegRadius: 3
   minLegDistance: 4.5
   maxLegDistance: 6.2999997
-  legResolution: 40
+  legResolution: 50
   minGrowCoef: 4.5
   maxGrowCoef: 6.5
   newLegCooldown: 0.3
-  velocity: {x: 0.051775977, y: 0, z: 0.4935444}
+  ren: {fileID: 8675915458194695972}
+  velocity: {x: 0.5159321, y: 0, z: -0.45147353}
 --- !u!114 &608258904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +85,130 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 0.8
-  speed: 5
+  speed: 8
   velocityLerpCoef: 4
+--- !u!54 &1251302217
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &1251302232
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1251302240
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.9
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &1251302229
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 12
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 180
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1251302230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628ed599bc688de4bb86bcd0e003619d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 10
+  attackRange: 3
+  timeBetweenAttackes: 3
+  target: {fileID: 0}
+  slash: {fileID: 1246592314711313202, guid: 64fb8eef41f228844a59122caec5aef6, type: 3}
+  whatIsAttackable:
+    serializedVersion: 2
+    m_Bits: 256
+  following: 0
+  scoreboard: {fileID: 0}
+--- !u!114 &1251302231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02534eeaf4c884446a3fa02bb32c15af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  corruption: 50
+  ren: {fileID: 8675915458194695972}
+  bunny: {fileID: 0}
+--- !u!114 &1251302236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675915457954794080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbe28c8cacbf2d44b4fbe7949b688b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  rotSpeed: 300
+  iswandering: 0
+  isRotatingLeft: 0
+  isRotatingRight: 0
+  iswalking: 0
+  ec: {fileID: 1251302230}
 --- !u!1 &8675915458194695971
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +220,7 @@ GameObject:
   - component: {fileID: 8675915458194695970}
   - component: {fileID: 8675915458194695975}
   - component: {fileID: 8675915458194695972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

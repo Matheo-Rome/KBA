@@ -5034,7 +5034,6 @@ GameObject:
   - component: {fileID: 5614410671974509286}
   - component: {fileID: 715025484}
   - component: {fileID: 715025483}
-  - component: {fileID: 715025485}
   m_Layer: 0
   m_Name: Wand_Basic
   m_TagString: Untagged
@@ -5051,7 +5050,7 @@ Transform:
   m_GameObject: {fileID: 6262986123301899059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1371020465}
@@ -5248,6 +5247,7 @@ MonoBehaviour:
     m_Bits: 128
   pm: {fileID: 0}
   fb: {fileID: 0}
+  gA: {fileID: 0}
   maxSwingDsitance: 100
   joint: {fileID: 0}
   orientation: {fileID: 0}
@@ -5257,32 +5257,5 @@ MonoBehaviour:
   extendedCableSpeed: 15
   predictionSphereCastRadius: 3
   predictionPoint: {fileID: 104850078}
-  gA: {fileID: 0}
   fuel: 8000
   maxfuel: 8000
---- !u!114 &715025485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6262986123301899059}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5763ec05676e04da9e3e34d8a00da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pm: {fileID: 0}
-  cam: {fileID: 0}
-  gunTip: {fileID: 1371020465}
-  Grappleable:
-    serializedVersion: 2
-    m_Bits: 0
-  lr: {fileID: 715025484}
-  GrappleRange: 0
-  grappleDelay: 0
-  overShootYAxis: 0
-  grapplingCd: 0
-  grapplingCdTimer: 0
-  grappleKey: 324
-  IsGrappling: 0

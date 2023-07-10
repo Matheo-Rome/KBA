@@ -11,21 +11,13 @@ public class Bullet : MonoBehaviour
     private bool alreaydHit = false;
 
     [SerializeField] private GameObject impact;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
     
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //If a collider which is not a player is hit make an impact effet and if the collider has a Target component remove
+    //health or corruption depending on the bullet 
     private void OnTriggerEnter(Collider other)
     {
+        //To avoid hitting multiple time the entity or getting stuck in player collider
         if (other.gameObject.tag == "Player" || alreaydHit)
             return;
         alreaydHit = true;

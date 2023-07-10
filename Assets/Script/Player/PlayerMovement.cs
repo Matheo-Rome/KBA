@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkSpeed;
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float swingSpeed;
-
-
     [SerializeField] private float groundDrag;
     
     [Header("Ground Check")]
@@ -41,28 +39,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float crouchSpeed;
     [SerializeField] private float crouchYScale;
     private float startYScale;
-    
-    [Header("Keybinds")]
-    //[SerializeField] private KeyCode jumpKey = KeyCode.Space;
-    //[SerializeField] private KeyCode sprintKey = KeyCode.RightAlt;
-    //[SerializeField] private KeyCode crouchKey = KeyCode.Mouse2;
-    
-    [Header("Orientation")] [SerializeField] private Transform orientation;
 
-    [Header("Camera")] [SerializeField] private PlayerCam pc;
+    [Header("Orientation")] 
+    [SerializeField] private Transform orientation;
+
+    [Header("Camera")] 
+    [SerializeField] private PlayerCam pc;
     [SerializeField] private float grappleFOV = 95f;
 
     [Header("Grappling")]
-    //[SerializeField] private Grappling gp;
     [SerializeField] private Swing sw;
     
     private float horizontalInput;
     private float verticalInput;
-
     private Vector3 moveDirection;
-
     private Rigidbody rb;
-
+    
     [SerializeField] private MovementState state;
 
     [Header("Audio")]
@@ -96,14 +88,18 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         var oldG = grounded;
+        // test if the player is on the ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeigt * 0.5f + 0.2f, whatIsGround);
+        // if player was of ground and now is grounded play land sound
         if (!oldG && grounded)
             landSound.Play();
+        
+        
         MyInput();
         SpeedControl();
         StateHandler();
         
-
+        //set drag and refuel for the swinging
         if (grounded && !activeGrapple)
         {
             rb.drag = groundDrag;
@@ -136,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Jump
-        if (Input.GetButtonDown("Jump") && readyToJump && (grounded /*|| gp.IsGrappling*/))
+        if (Input.GetButtonDown("Jump") && readyToJump && grounded)
         {
             Jump();
             jumpSound.Play();
@@ -173,13 +169,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        //when on Slope deactivate gravity (we "simulate it")
         rb.useGravity = !OnSlope();
         
         if (activeGrapple || swinging)
             return;
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        //On slope
+        //On slope : push the player in the direction of the slope (so he slides)
         if (OnSlope() && !exitingSlope)
         {
             rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
@@ -187,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
 
-        // On ground
+        // On ground : juste play the walking sound and push into the desired direction
         if (grounded)
         {
             if (moveDirection.normalized != Vector3.zero)
@@ -205,12 +202,12 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
-        // In air
+        // In air : stop walking sound and push the player a bit to increase air movement a bit
         else if (!grounded)
         {
             walkingSound.Stop();
             walkingSound.loop = false;
-            //rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
 
@@ -219,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
         if (activeGrapple)
             return;
         //limite speed on slope
-        if (OnSlope() && !exitingSlope && !swinging)
+        if (OnSlope() && !exitingSlope && !swinging && grounded)
         {
             if (rb.velocity.magnitude > moveSpeed)
                 rb.velocity = rb.velocity.normalized * moveSpeed;
@@ -249,39 +246,6 @@ public class PlayerMovement : MonoBehaviour
         exitingSlope = false;
     }
 
-    private bool enableMovementOnNextTouch;
-    public void JumpToPosition(Vector3 targetPosition, float trajectoryHeight)
-    {
-        activeGrapple = true;
-        velocityToSet = CalculateJumpVelocity(transform.position, targetPosition,trajectoryHeight);
-        Invoke(nameof(SetVelocity), 0.1f);
-        
-        Invoke(nameof(ResetRestriction), 3f);
-    }
-
-    private Vector3 velocityToSet;
-
-    private void SetVelocity()
-    {
-        enableMovementOnNextTouch = true;
-        rb.velocity = velocityToSet;
-        pc.DoFov(grappleFOV);
-    }
-
-    public void ResetRestriction()
-    {
-        activeGrapple = false;
-        //gp.StopGrapple();
-        pc.DoFov(85f);
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (enableMovementOnNextTouch)
-            enableMovementOnNextTouch = false;
-        ResetRestriction();
-
-    }
-
     private bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeigt * 0.5f + 0.3f) && !swinging)
@@ -297,17 +261,5 @@ public class PlayerMovement : MonoBehaviour
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
-
-    public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
-    {
-        float gravity = Physics.gravity.y;
-        float displacement = endPoint.y - startPoint.y;
-        Vector3 displacementXZ = new Vector3(endPoint.x - startPoint.x, 0f, endPoint.z - startPoint.z);
-        
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * trajectoryHeight);
-        Vector3 velocityXZ = displacementXZ / (Mathf.Sqrt(-2 * trajectoryHeight / gravity) +
-                                               Mathf.Sqrt(2 * (displacement - trajectoryHeight) / gravity));
-        return velocityXZ + velocityY;
-    }  
     
 }

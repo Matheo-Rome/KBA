@@ -16,6 +16,7 @@ public class Target : MonoBehaviour
         ach = FindObjectOfType<GlobalAchievement>();
     }
 
+    //Change the already instantiated legs color of the enemy 
     private void changeLegColor(Color color)
     {
          var legs = gameObject.GetComponentsInChildren<Leg>();
@@ -26,6 +27,7 @@ public class Target : MonoBehaviour
     }
         
 
+    //Remove health and change entity color
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -50,6 +52,7 @@ public class Target : MonoBehaviour
         }
     }
 
+    //Remove corruption and change entity color
     public void TakeHealing(float amount)
     {
         corruption -= amount;
@@ -80,6 +83,7 @@ public class Target : MonoBehaviour
         }
     }
 
+    //Die
     void Die()
     {
         Destroy(gameObject);

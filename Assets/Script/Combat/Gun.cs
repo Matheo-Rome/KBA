@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float heal = 10f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float bulletSpeed = 5f;
-    private Color HealColor;
+    [SerializeField] private Color HealColor;
     [SerializeField] private Color DmgColor;
     [SerializeField] private Material DmgMat;
     [SerializeField] private Material HealMat;
@@ -58,11 +58,13 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        // Change the aspect of the staff to "Dmg"
         mr.material.color  = DmgColor;
         dmgSound.Play();
         DmgPart.SetActive(true);
         HealPart.SetActive(false);
         AuraShere.GetComponent<MeshRenderer>().material = DmgMat;
+        
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
         RaycastHit hit;
@@ -90,13 +92,17 @@ public class Gun : MonoBehaviour
 
     void Heal()
     {
+        // Change the aspect of the staff to "Heal'
         mr.material.color = HealColor;
         DmgPart.SetActive(false);
         HealPart.SetActive(true);
         AuraShere.GetComponent<MeshRenderer>().material = HealMat;
+        
+        
         healSound.Play();
+        
+        //Get the object in sight or a far away point
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
         RaycastHit hit;
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out hit))
@@ -104,18 +110,21 @@ public class Gun : MonoBehaviour
         else
             targetPoint = ray.GetPoint(75);
 
+        //Instantiate a bullet from the tip of the staff to target and a muzzle
         Vector3 direction = targetPoint - gunPoint.position;
         Rigidbody spawnedBullet = Instantiate(bulletHeal, gunPoint.transform.position,Quaternion.identity);
-
         GameObject spawnedMuzzle = Instantiate(muzzleHeal, gunPoint.transform.position, Quaternion.identity);
-
-        spawnedMuzzle.transform.forward = direction.normalized;
+        
         spawnedBullet.transform.forward = direction.normalized;
         spawnedBullet.gameObject.GetComponent<Bullet>().heal = heal;
+        
+        //So the bullet flies straight
         spawnedBullet.useGravity = false;
         
         spawnedBullet.AddForce(direction * bulletSpeed, ForceMode.Impulse);
+        //Destroy the bullet if not hit anything in 2 sec
         Destroy(spawnedBullet.gameObject, 2);
+        //Can shoot again in 0.25 sec
         Invoke("ResetShot", 0.25f);
         Destroy(spawnedMuzzle, 0.5f);
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Grappling : MonoBehaviour
 {
+    //DEPRECEATED BUT KEPT BECAUSE CAN BE USEFUL
     [Header("References")]
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private Transform cam;
@@ -25,9 +26,8 @@ public class Grappling : MonoBehaviour
     [SerializeField] private float grapplingCdTimer;
 
     [Header(("Input"))] [SerializeField] private KeyCode grappleKey = KeyCode.Mouse1;
-
+    
     public bool IsGrappling;
-    // Start is called before the first frame update
     void Start()
     {
         lr.enabled = false;
@@ -85,7 +85,7 @@ public class Grappling : MonoBehaviour
         if (grapplePointRelativeYPos < 0)
             highestPointOnArc = overShootYAxis;
         
-        pm.JumpToPosition(grapplePoint,highestPointOnArc);
+        //pm.JumpToPosition(grapplePoint,highestPointOnArc);
         
         Invoke(nameof(StopGrapple), 1f); // faire coroutine
     }

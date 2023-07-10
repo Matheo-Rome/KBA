@@ -16,9 +16,10 @@ public class WanderHostile : MonoBehaviour
     [SerializeField] private EnemyController ec;
 
     private Rigidbody rb;
+    
+    //Almost the same code as wander but with animation removed and some check added (wanted to avoid some code with many if everywhere)
     void Start(){
         rb = GetComponent<Rigidbody>();
-        // m_animator.SetInteger("AnimIndex", 1);
     }
  
     // Update is called once per frame

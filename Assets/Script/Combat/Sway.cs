@@ -7,13 +7,10 @@ public class Sway : MonoBehaviour
     [Header("Sway Settings")] 
     [SerializeField] private float smooth;
     [SerializeField] private float swayMultiplier;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  
 
-    // Update is called once per frame
+    
+    //Add some movement to the tools (follow the cameras movement)
     void Update()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * swayMultiplier;
