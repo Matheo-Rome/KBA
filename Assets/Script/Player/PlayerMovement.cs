@@ -135,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
         //Jump
         if (Input.GetButtonDown("Jump") && readyToJump && grounded)
         {
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             Jump();
             jumpSound.Play();
             readyToJump = false;
@@ -171,33 +172,35 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         //when on Slope deactivate gravity (we "simulate it")
-       // rb.useGravity = !OnSlope();
+        rb.useGravity = !OnSlope();
         
         if (activeGrapple || swinging)
             return;
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         //On slope : push the player in the direction of the slope (so he slides)
-       /* if (OnSlope() && !exitingSlope)
+       if (OnSlope() && !exitingSlope)
         {
             rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-        }*/
+        }
 
         // On ground : juste play the walking sound and push into the desired direction
         if (grounded)
         {
             if (moveDirection.normalized != Vector3.zero)
             {
+                rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
                 var wasPlaying = walkingSound.loop;
                 walkingSound.loop = true;
                 if (!wasPlaying)
                     walkingSound.Play();
-                
             }
             else
             {
+                if (readyToJump)
+                    rb.constraints |=  RigidbodyConstraints.FreezePositionY;
                 walkingSound.Stop();
                 walkingSound.loop = false;
             }
@@ -217,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
         if (activeGrapple)
             return;
         //limite speed on slope
-        if (OnSlope() && !exitingSlope && !swinging && grounded && false)
+       if (OnSlope() && !exitingSlope && !swinging && grounded)
         {
             if (rb.velocity.magnitude > moveSpeed)
                 rb.velocity = rb.velocity.normalized * moveSpeed;
