@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
     public float corruption = 50f;
     [SerializeField] private Renderer ren;
     [SerializeField] private Transform portal;
+    [SerializeField] private Transform kaboom;
     GameObject bunny;
     GlobalAchievement ach;
     private bool spawnedB = false;
@@ -36,8 +37,9 @@ public class Target : MonoBehaviour
         switch (health)
         {
             case <= 0f:
-                Die();
+                Instantiate(kaboom, transform.position, Quaternion.identity);
                 ach.killed++;
+                Die();
                 break;
             case <= 10f:
                 ren.material.color = Color.magenta;

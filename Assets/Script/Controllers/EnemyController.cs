@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -57,13 +58,19 @@ public class EnemyController : MonoBehaviour
                   {
                       Debug.Log("Oh no you taking damages !");
                       scoreboard.SetActive(true);
+                      Destroy(target.gameObject.GetComponent<PlayerMovement>());
+                      Destroy(target.gameObject.GetComponentInChildren<Swing>(false));
+                      Destroy(target.gameObject.GetComponentInChildren<Gun>(false));
+                      AudioListener.pause = true;
+                      Cursor.visible = true;
+                      Cursor.lockState = CursorLockMode.Confined;
                       if (ach.timePlayed == 0f)
                         ach.timePlayed = Time.time;
                       var createdSlash = Instantiate(slash, transform.position, Quaternion.identity);
                       createdSlash.transform.forward = transform.forward;
                       alreadyAttacked = true;
                       Invoke(nameof(ResetAttack), timeBetweenAttackes);
-
+                      Destroy(this);
                   }
 
               }

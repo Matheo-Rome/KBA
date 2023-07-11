@@ -71,7 +71,7 @@ MonoBehaviour:
   maxGrowCoef: 6.5
   newLegCooldown: 0.3
   ren: {fileID: 8675915458194695972}
-  velocity: {x: -0.33275655, y: 0, z: -0.8100834}
+  velocity: {x: 0.62936723, y: 0, z: -0.59580386}
 --- !u!114 &608258904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,8 @@ MonoBehaviour:
   health: 30
   corruption: 50
   ren: {fileID: 8675915458194695972}
-  portal: {fileID: 8362349209469777723, guid: 1835dbeede209484cb976155d1b75638, type: 3}
+  portal: {fileID: 8362349209469777723, guid: 68082bf1ae58c9c4b8ecd892e3ed6742, type: 3}
+  kaboom: {fileID: 7282744016949600939, guid: 17b9ceaa260b65645af86f378407e0fb, type: 3}
 --- !u!114 &1251302236
 MonoBehaviour:
   m_ObjectHideFlags: 0
