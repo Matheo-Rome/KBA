@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
     public float health = 30f;
     public float corruption = 50f;
     [SerializeField] private Renderer ren;
+    [SerializeField] private Transform portal;
     GameObject bunny;
     GlobalAchievement ach;
     private bool spawnedB = false;
@@ -63,7 +64,10 @@ public class Target : MonoBehaviour
                 if (!spawnedB)
                 {
                     spawnedB = true;
-                    Instantiate(bunny, transform.position, transform.rotation);
+                    Transform createdPortal = Instantiate(portal, transform.position + Vector3.up, Quaternion.identity);
+                    createdPortal.forward = transform.forward;
+                    Instantiate(bunny, createdPortal.position, transform.rotation);
+                    Destroy(createdPortal.gameObject, 1f);
                     ach.saved++;
                     Die();
                 }

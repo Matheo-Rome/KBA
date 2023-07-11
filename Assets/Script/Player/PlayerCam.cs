@@ -23,8 +23,8 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * 0.008f * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * 0.008f * sensY;
 
         yRotation += mouseX;
         xRotation -= mouseY;

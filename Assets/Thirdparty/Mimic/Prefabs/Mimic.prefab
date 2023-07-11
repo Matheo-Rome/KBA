@@ -54,12 +54,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legPrefab: {fileID: 1682633662898237459, guid: fb7bce2dee9494540a1866bb5d230a51, type: 3}
-  numberOfLegs: 6
-  partsPerLeg: 3
+  numberOfLegs: 3
+  partsPerLeg: 2
   legCount: 0
   deployedLegs: 0
   minimumAnchoredLegs: 2
-  minimumAnchoredParts: 6
+  minimumAnchoredParts: 4
   minLegLifetime: 5
   maxLegLifetime: 15
   legPlacerOrigin: {x: 0, y: 0, z: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   maxGrowCoef: 6.5
   newLegCooldown: 0.3
   ren: {fileID: 8675915458194695972}
-  velocity: {x: 0.7424055, y: 0, z: -0.51138264}
+  velocity: {x: -0.33275655, y: 0, z: -0.8100834}
 --- !u!114 &608258904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +189,7 @@ MonoBehaviour:
   health: 30
   corruption: 50
   ren: {fileID: 8675915458194695972}
+  portal: {fileID: 8362349209469777723, guid: 1835dbeede209484cb976155d1b75638, type: 3}
 --- !u!114 &1251302236
 MonoBehaviour:
   m_ObjectHideFlags: 0

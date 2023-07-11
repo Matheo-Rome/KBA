@@ -109,12 +109,18 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = groundDrag;
             if (sw.fuel < sw.maxfuel && sw.joint == null)
-                sw.fuel+=6;
+            {
+                float percentage = 15 * Time.deltaTime;
+                sw.fuel += sw.maxfuel * (percentage / 100f);
+            }
         }
         else
         {
             if (sw.joint == null && sw.fuel < sw.maxfuel)
-                sw.fuel += 4;
+            {
+                float percentage = 7 * Time.deltaTime;
+                sw.fuel += sw.maxfuel * (percentage / 100f);
+            }
             rb.drag = 0;
         }
         sw.IncrementFuel();

@@ -35,8 +35,8 @@ public class Swing : MonoBehaviour
     private Vector3 currentGrapplePosition;
 
     [Header("Values")]
-    public int fuel = 8000;
-    public int maxfuel = 8000;
+    public float fuel = 100;
+    public float maxfuel = 100;
     
     
     // Start is called before the first frame update
@@ -130,11 +130,13 @@ public class Swing : MonoBehaviour
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
-        
+        float percentage;
+        float value;
         // go right
         if (Input.GetButton("Horizontal") && horizontalInput > 0)
         {
-            fuel-=3;
+            percentage = 8 * Time.deltaTime;
+            fuel -= maxfuel * (percentage / 100f);
             rb.AddForce(orientation.right * horizontalThrustForce * Time.deltaTime);
         }
 
@@ -142,14 +144,16 @@ public class Swing : MonoBehaviour
         // go left
         if (Input.GetButton("Horizontal") && horizontalInput < 0)
         {
-            fuel-=3;
+            percentage = 8 * Time.deltaTime;
+            fuel -= maxfuel * (percentage / 100f);
             rb.AddForce(-orientation.right * horizontalThrustForce * Time.deltaTime);
         }
 
         // go forward
         if (Input.GetButton("Vertical") && verticalInput > 0)
         {
-            fuel -= 3;
+            percentage = 8 * Time.deltaTime;
+            fuel -= maxfuel * (percentage / 100f);
             rb.AddForce((orientation.forward * fowardThrustForce * Time.deltaTime));
         }
 
@@ -158,7 +162,8 @@ public class Swing : MonoBehaviour
         // retract grapple
         if (Input.GetKey(KeyCode.Space))
         {
-            fuel-=5;
+            percentage = 16 * Time.deltaTime;
+            fuel -= maxfuel * (percentage / 100f);
             Vector3 directionToPoint = swingPoint - transform.position;
             rb.AddForce(directionToPoint.normalized * fowardThrustForce * Time.deltaTime);
 
@@ -171,7 +176,8 @@ public class Swing : MonoBehaviour
         //extract grapple
         if (Input.GetButton("Vertical") && verticalInput < 0)
         {
-            fuel-=6;
+            percentage = 6 * Time.deltaTime;
+            fuel -= maxfuel * (percentage / 100f);
             float extendedDistanceFromPoint = Vector3.Distance(transform.position, swingPoint) + extendedCableSpeed;
 
             joint.maxDistance = extendedDistanceFromPoint * 0.8f;
