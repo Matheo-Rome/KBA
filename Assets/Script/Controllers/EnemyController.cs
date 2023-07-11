@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
                       Destroy(target.gameObject.GetComponentInChildren<Gun>(false));
                       AudioListener.pause = true;
                       Cursor.visible = true;
-                      Cursor.lockState = CursorLockMode.Confined;
+                      Cursor.lockState = CursorLockMode.None;
                       if (ach.timePlayed == 0f)
                         ach.timePlayed = Time.time;
                       var createdSlash = Instantiate(slash, transform.position, Quaternion.identity);

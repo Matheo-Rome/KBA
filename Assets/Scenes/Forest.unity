@@ -27585,8 +27585,20 @@ PrefabInstance:
       value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 1300246805, guid: d6f4aad3588b52d4b80f8c98db6849de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1828286771}
+    - target: {fileID: 1300246805, guid: d6f4aad3588b52d4b80f8c98db6849de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300246805, guid: d6f4aad3588b52d4b80f8c98db6849de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300246805, guid: d6f4aad3588b52d4b80f8c98db6849de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Quit, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5168417549038536330, guid: d6f4aad3588b52d4b80f8c98db6849de, type: 3}
       propertyPath: sw
@@ -69448,6 +69460,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5168417550629855560, guid: d6f4aad3588b52d4b80f8c98db6849de, type: 3}
   m_PrefabInstance: {fileID: 764155375}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828286771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828286769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667d2a73d86d33b4f80a0540c8b5a87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: 0
 --- !u!1001 &1830627896
 PrefabInstance:
   m_ObjectHideFlags: 0
