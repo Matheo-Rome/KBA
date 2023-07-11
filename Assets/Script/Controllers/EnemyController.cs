@@ -19,12 +19,14 @@ public class EnemyController : MonoBehaviour
     private bool alreadyAttacked = false;
 
     public GameObject scoreboard;
+    GlobalAchievement ach;
 
     // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>(); 
+        ach = FindObjectOfType<GlobalAchievement>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,8 @@ public class EnemyController : MonoBehaviour
                   {
                       Debug.Log("Oh no you taking damages !");
                       scoreboard.SetActive(true);
+                      if (ach.timePlayed == 0f)
+                        ach.timePlayed = Time.time;
                       var createdSlash = Instantiate(slash, transform.position, Quaternion.identity);
                       createdSlash.transform.forward = transform.forward;
                       alreadyAttacked = true;

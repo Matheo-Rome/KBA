@@ -19,6 +19,7 @@ public class GlobalAchievement : MonoBehaviour
     public int saved = 0;
     public int nb_grappling = 0;
     public bool fiftyMeters = false;
+    public float timePlayed = 0f;
 
     // Achievements images
     public List<GameObject> achImg;
@@ -47,9 +48,9 @@ public class GlobalAchievement : MonoBehaviour
         if (achEvent[3] && !achUnlocked[3])
             StartCoroutine(TriggerAch(3, "Savior", "Save 10 enemies"));
         if (achEvent[4] && !achUnlocked[4])
-            StartCoroutine(TriggerAch(4, "Genocide", "Kill all the enemies"));
+            StartCoroutine(TriggerAch(4, "Genocide", "Kill 100 enemies"));
         if (achEvent[5] && !achUnlocked[5])
-            StartCoroutine(TriggerAch(5, "Pacifist", "Save all the enemies"));
+            StartCoroutine(TriggerAch(5, "Pacifist", "Save 100 enemies"));
         if (achEvent[6] && !achUnlocked[6])       
             StartCoroutine(TriggerAch(6, "Wassup gamer", "Play 5 minutes"));
         if (achEvent[7] && !achUnlocked[7])       
@@ -74,6 +75,8 @@ public class GlobalAchievement : MonoBehaviour
             achEvent[4] = true;
         if (saved >= 50)
             achEvent[5] = true;
+        if (Time.time >= 300f)
+            achEvent[6] = true;
         if (nb_grappling != 0)
             achEvent[7] = true;
         if (nb_grappling >= 50)

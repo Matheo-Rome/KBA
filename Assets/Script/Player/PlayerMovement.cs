@@ -74,11 +74,15 @@ public class PlayerMovement : MonoBehaviour
     public bool freeze;
     public bool activeGrapple;
     public bool swinging;
+
+    GlobalAchievement ach;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         startYScale = transform.localScale.y;
+        ach = FindObjectOfType<GlobalAchievement>();
     }
 
     private void FixedUpdate()
@@ -124,6 +128,9 @@ public class PlayerMovement : MonoBehaviour
         { 
             rb.velocity += Vector3.up * (Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime) ;
         }
+
+        if (this.transform.position.y >= 100)
+            ach.fiftyMeters = true;
 
     }
 
