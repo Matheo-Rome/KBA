@@ -1,7 +1,7 @@
 # Difficulté
 
-La plus grosse difficulté que nous avons eue ça a été l'optimisation du jeu en lui-même, nous n'avions pas forcément pris en comptele nombre d'entités 
-présentes au même moment dans la scène ce qui avait pour effet de créer des ralentissement important. Pour résoudre ce souci nous avons du réduire la quantité de décors présents sur notre map.
+La plus grosse difficulté que nous avons eue ça a été l'optimisation du jeu en lui-même, nous n'avions pas forcément pris en compte le nombre d'entités 
+présentes au même moment dans la scène ce qui avait pour effet de créer des ralentissement important. Pour résoudre ce souci, nous avons du réduire la quantité de décors présents sur notre map.
 
 # La suite
 
