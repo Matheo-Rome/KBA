@@ -14,7 +14,8 @@ Essayez de tuer ou de guérir le plus d'ennemis possibles et de réaliser le plu
 Marcher tout droit : Z ou O  
 Marcher en arrière : S ou L  
 Aller à gauche : Q ou K  
-Aller à droite : D ou M  
+Aller à droite : D ou M
+Sprinter : Left Alt ou Right Alt
 (ces commandes ont deux possibilités  pour permettre aux gauchers de jouer également)  
 
 Sauter : Espace  
