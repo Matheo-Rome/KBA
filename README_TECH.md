@@ -15,7 +15,7 @@ Dans le dossier Assets/Script, nous pouvons retrouver les différents scriptes u
 d'instancier les différents effets de VFX et de changer la texture de la baguette magique en fonction des derniers sorts lancés.
 - Le dossier Controllers qui contient les différents scripts gérants le comportement des entités du jeu. Il est notamment composé du script EnemyController qui va
 permettre aux ennemies de s'approcher du joueur et de l'attaquer s'il est à porté. Le script Wander(Hostile) gérant les déplacements des entités quand aucun joueur n'est à porté.
-- Le dossier Player contents les différents scripts gérants les déplacements et la caméra du joueur. Nous avons notamment le script PlayerMovement.cs qui s'occupe de gérer les
+- Le dossier Player qui contient les différents scripts gérants les déplacements et la caméra du joueur. Nous avons notamment le script PlayerMovement.cs qui s'occupe de gérer les
 déplacements basiques du joueur et son évolution dans l'espace de jeu. Le script Swing.cs s'occupe de gérer la partie grappin du joueur.
 
 # Quoi regarder
