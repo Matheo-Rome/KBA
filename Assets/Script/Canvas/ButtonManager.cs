@@ -10,7 +10,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject HelpMenu;
     [SerializeField] private GameObject Controles;
     [SerializeField] private GameObject Goal;
-
+    [SerializeField] private GameObject Bc;
+    [SerializeField] private GameObject Bce;
     public void startGame()
     {
         SceneManager.LoadScene(startSceneIndex);
@@ -26,12 +27,16 @@ public class ButtonManager : MonoBehaviour
     public void help()
     {
         MainMenu.SetActive(false);
+        Bc.SetActive(false);
+        Bce.SetActive(true);
         HelpMenu.SetActive(true);
     }
 
     public void goBackHelp()
     {
         HelpMenu.SetActive(false);
+        Bc.SetActive(true);
+        Bce.SetActive(false);
         MainMenu.SetActive(true);
     }
 
