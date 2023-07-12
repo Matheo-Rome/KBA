@@ -1,7 +1,0 @@
-Dans cet exercice, on souhaite propulser une voiture avec une vitesse aléatoire et compter le nombre de fois où une collision a lieu avec l'objet "Ramp".
-On souhaite pouvoir instancier une nouvelle voiture à l'aide d'un bouton dans l'interface, et observer le compte via un texte.
-Il doit être impossible d'avoir plusieurs instances de voiture présents en même temps dans la scène.
-
-Le prefab de la voiture (CrashCar) devra être instancié à la position de l'objet CarSpawn et détruit en entrant en contact avec l'objet DestroyTrigger.
-
-Le script Ex3_ForceAtStart déjà présent est placé sur le prefab de la voiture et s'occupe de la propulser à une vitesse aléatoire.

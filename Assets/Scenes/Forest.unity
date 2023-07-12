@@ -2036,7 +2036,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -2044,7 +2052,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -2416,7 +2424,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -2424,7 +2440,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -3300,7 +3316,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -3308,7 +3332,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -5610,7 +5634,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -5618,7 +5650,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -5744,7 +5776,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -5752,7 +5792,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -6639,7 +6679,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -6647,7 +6695,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -8016,7 +8064,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -8024,7 +8080,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -9155,7 +9211,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -9163,7 +9227,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -9375,7 +9439,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -9383,7 +9455,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -9509,7 +9581,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -9517,7 +9597,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -15771,7 +15851,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -15779,7 +15867,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -17249,7 +17337,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -17257,7 +17353,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -17547,7 +17643,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -17555,7 +17659,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -19955,7 +20059,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -19963,7 +20075,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -21349,7 +21461,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -21357,7 +21477,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -24991,7 +25111,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -24999,7 +25127,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -26699,7 +26827,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -26707,7 +26843,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -31550,7 +31686,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -31558,7 +31702,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -32535,7 +32679,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -32543,7 +32695,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -36794,7 +36946,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -36802,7 +36962,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -39354,7 +39514,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -39362,7 +39530,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -41599,7 +41767,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -41607,7 +41783,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -44761,7 +44937,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -44769,7 +44953,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -45891,7 +46075,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -45899,7 +46091,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -47796,7 +47988,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -47804,7 +48004,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -48598,7 +48798,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -48606,7 +48814,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -49068,7 +49276,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -49076,7 +49292,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -49370,7 +49586,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -49378,7 +49602,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -53543,7 +53767,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -53551,7 +53783,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -55537,7 +55769,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -55545,7 +55785,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -61357,7 +61597,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -61365,7 +61613,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -63117,7 +63365,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -63125,7 +63381,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -65265,7 +65521,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -65273,7 +65537,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -72493,6 +72757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3520638934074920315, guid: b9654f0cc9f18dc4d8a56a7ba5c2d9e2, type: 3}
+      propertyPath: swing
+      value: 
+      objectReference: {fileID: 1877285892}
     - target: {fileID: 7342703411883598681, guid: b9654f0cc9f18dc4d8a56a7ba5c2d9e2, type: 3}
       propertyPath: sensX
       value: 400
@@ -73862,7 +74130,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -73870,7 +74146,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -74730,7 +75006,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -74738,7 +75022,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -75631,7 +75915,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -75639,7 +75931,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard
@@ -81145,7 +81437,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_Acceleration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251302229, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: sb
@@ -81153,7 +81453,7 @@ PrefabInstance:
       objectReference: {fileID: 818989878}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: lookRadius
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1251302230, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: scoreboard

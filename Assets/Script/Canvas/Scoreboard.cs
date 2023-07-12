@@ -24,19 +24,26 @@ public class Scoreboard : MonoBehaviour
     public void UpdateScore()
     {
         GlobalAchievement achGlobal = FindObjectOfType<GlobalAchievement>();
+        List<int> achievementValues = new List<int>(){50,70, 420, 536, 2000, 2500, 750, 50, 542, 1500};
+        
+        var saved = achGlobal.saved;
+        var killed = achGlobal.killed;
+        
+        // Give flat 125 point by ennemy killed
+        float point = killed * 125;
+        
         achUnlocked.SetActive(true);
         for (int i = 0; i <= 9; i++)
         {
             if (achGlobal.achEvent[i])
-                achImg[i].SetActive(true); 
+            {
+                achImg[i].SetActive(true);
+                //Give point per achievemnts get
+                point += achievementValues[i];
+            }
         }
-
-        // Give flat 125 point by ennemy killed
+        
         // Give increasing number of point for each ennemy healed sum(i = 1 to saved) { 50 + sum(j =1 to i){ i + j / 6}}
-        var saved = achGlobal.saved;
-        var killed = achGlobal.killed;
-
-        float point = killed * 125;
         for (int i = 1; i <= saved; i++)
         {
             point += 50;

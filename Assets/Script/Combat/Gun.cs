@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject AuraShere;
     [SerializeField] private GameObject HealPart;
     [SerializeField] private GameObject DmgPart;
+    [SerializeField] private Swing swing;
     
     
     [Header("Bullet")]
@@ -36,6 +38,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioSource dmgSound;
     [SerializeField] private AudioSource healSound;
 
+
     private void Start()
     {
         HealColor = mr.material.color;
@@ -53,7 +56,7 @@ public class Gun : MonoBehaviour
         {
             canShoot = false;
             Heal();
-        }  
+        }
     }
 
     void Shoot()
@@ -64,30 +67,8 @@ public class Gun : MonoBehaviour
         DmgPart.SetActive(true);
         HealPart.SetActive(false);
         AuraShere.GetComponent<MeshRenderer>().material = DmgMat;
-        
-        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-        RaycastHit hit;
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.GetPoint(75);
-
-        Vector3 direction = targetPoint - gunPoint.position;
-        Rigidbody spawnedBullet = Instantiate(bulletDmg, gunPoint.transform.position,Quaternion.identity);
-
-        GameObject spawnedMuzzle = Instantiate(muzzleDmg, gunPoint.transform.position, Quaternion.identity);
-
-        spawnedMuzzle.transform.forward = direction.normalized;
-        spawnedBullet.transform.forward = direction.normalized;
-        spawnedBullet.gameObject.GetComponent<Bullet>().damage = damage;
-        spawnedBullet.useGravity = false;
-        
-        spawnedBullet.AddForce(direction * bulletSpeed, ForceMode.Impulse);
-        Destroy(spawnedBullet.gameObject, 2);
-        Invoke("ResetShot", 0.25f);
-        Destroy(spawnedMuzzle, 0.5f);
+        LaunchBullet(bulletDmg, muzzleDmg);
     }
 
     void Heal()
@@ -100,7 +81,13 @@ public class Gun : MonoBehaviour
         
         
         healSound.Play();
-        
+        LaunchBullet(bulletHeal, muzzleHeal);
+    }
+
+    private void LaunchBullet(Rigidbody bullet, GameObject muzzle)
+    {
+        swing.fuel -= swing.maxfuel * (10 / 100f);
+        swing.DecrementFuel();
         //Get the object in sight or a far away point
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
@@ -112,12 +99,14 @@ public class Gun : MonoBehaviour
 
         //Instantiate a bullet from the tip of the staff to target and a muzzle
         Vector3 direction = targetPoint - gunPoint.position;
-        Rigidbody spawnedBullet = Instantiate(bulletHeal, gunPoint.transform.position,Quaternion.identity);
-        GameObject spawnedMuzzle = Instantiate(muzzleHeal, gunPoint.transform.position, Quaternion.identity);
+        Rigidbody spawnedBullet = Instantiate(bullet, gunPoint.transform.position,Quaternion.identity);
+        GameObject spawnedMuzzle = Instantiate(muzzle, gunPoint.transform.position, Quaternion.identity);
         
         spawnedBullet.transform.forward = direction.normalized;
-        spawnedBullet.gameObject.GetComponent<Bullet>().heal = heal;
-        
+        var b = spawnedBullet.gameObject.GetComponent<Bullet>();
+        b.heal = heal;
+        b.damage = damage;
+
         //So the bullet flies straight
         spawnedBullet.useGravity = false;
         

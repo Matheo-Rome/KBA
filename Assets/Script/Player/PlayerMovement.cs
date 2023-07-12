@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (this.transform.position.y >= 100)
-            ach.fiftyMeters = true;
+            ach.hundredMeter = true;
 
     }
 

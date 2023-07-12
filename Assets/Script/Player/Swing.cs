@@ -190,6 +190,11 @@ public class Swing : MonoBehaviour
     {
         fb.IncrementFuel(fuel);
     }
+
+    public void DecrementFuel()
+    {
+        fb.DecrementFuel(fuel);
+    }
     
     private void CheckForSwingPoints()
     {
@@ -210,26 +215,5 @@ public class Swing : MonoBehaviour
             realHitPoint = raycastHit.point;
             predictionHit = raycastHit;
         }
-        /*else
-        {
-            //SphereCast to get the closest point from our camera to be the hit point
-            Physics.SphereCast(cam.position, predictionSphereCastRadius, cam.forward, out sphereCastHit, maxSwingDsitance,
-                whatIsGrappleable);
-            if (sphereCastHit.point != Vector3.zero)
-            {
-                realHitPoint = sphereCastHit.point;
-                predictionHit = sphereCastHit;
-            }
-        }
-
-        //if we have a hit point activate the point
-        if (realHitPoint != Vector3.zero)
-        {
-            predictionPoint.gameObject.SetActive(true);
-            predictionPoint.position = realHitPoint;
-        }
-        else
-            predictionPoint.gameObject.SetActive(false);*/
-
     }
 }

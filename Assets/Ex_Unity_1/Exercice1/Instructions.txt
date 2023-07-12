@@ -1,4 +1,0 @@
-Modifiez la scène et le script Ex1_RollBall.cs pour permettre à l'utilisateur de faire rouler la balle avec ZQSD ou les touches fléchées du clavier.
-Ne créez pas d'autres scripts.
-
-La balle doit posséder une simulation physique.
