@@ -17,10 +17,11 @@ public class Scoreboard : MonoBehaviour
     public GameObject Save;
     public GameObject Grappling;
     public GameObject Points;
-    public GameObject achUnlocked;
+    
 
-    // Update is called once per frame
-    void Update()
+    public GameObject achUnlocked;
+    
+    public void UpdateScore()
     {
         GlobalAchievement achGlobal = FindObjectOfType<GlobalAchievement>();
         achUnlocked.SetActive(true);
@@ -30,12 +31,27 @@ public class Scoreboard : MonoBehaviour
                 achImg[i].SetActive(true); 
         }
 
-        
+        // Give flat 125 point by ennemy killed
+        // Give increasing number of point for each ennemy healed sum(i = 1 to saved) { 50 + sum(j =1 to i){ i + j / 6}}
+        var saved = achGlobal.saved;
+        var killed = achGlobal.killed;
+
+        float point = killed * 125;
+        for (int i = 1; i <= saved; i++)
+        {
+            point += 50;
+            for (int j = 1; j <= i; j++)
+            {
+                point += ((i + j) / 5);
+            }
+        }
+
+        point = Mathf.Ceil(point);
         TimePlayed.GetComponent<TextMeshProUGUI>().text = timeToString(achGlobal.timePlayed);
-        Kill.GetComponent<TextMeshProUGUI>().text = achGlobal.killed.ToString();
-        Save.GetComponent<TextMeshProUGUI>().text = achGlobal.saved.ToString();
+        Kill.GetComponent<TextMeshProUGUI>().text = killed.ToString();
+        Save.GetComponent<TextMeshProUGUI>().text = saved.ToString();
         Grappling.GetComponent<TextMeshProUGUI>().text = achGlobal.nb_grappling.ToString();
-        Points.GetComponent<TextMeshProUGUI>().text = "0";
+        Points.GetComponent<TextMeshProUGUI>().text = point.ToString();
     }
 
     string timeToString(float n)

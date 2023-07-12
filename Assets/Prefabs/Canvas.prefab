@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2486842771107571833}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -1655,8 +1655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: 166}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 250.42831, y: 166}
+  m_SizeDelta: {x: 237.797, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5168417549606309286
 CanvasRenderer:
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1936,8 +1936,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 726, y: 166}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 636.83124, y: 166}
+  m_SizeDelta: {x: 160.0738, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5168417549752400732
 CanvasRenderer:
@@ -2001,7 +2001,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2147,8 +2147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 166}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -237.04124, y: 166}
+  m_SizeDelta: {x: 106.8385, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5168417549771379518
 CanvasRenderer:
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2428,8 +2428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: 166}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -21.5735, y: 166}
+  m_SizeDelta: {x: 105.774, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5168417549992693547
 CanvasRenderer:
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3368,8 +3368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -475, y: 166}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -563.8842, y: 166}
+  m_SizeDelta: {x: 289.3604, y: 49.8032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5168417550481123544
 CanvasRenderer:
@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3777,7 +3777,7 @@ GameObject:
   - component: {fileID: 5168417550629855561}
   - component: {fileID: 5168417550629855559}
   - component: {fileID: 5168417550629855558}
-  - component: {fileID: 2486842771107571833}
+  - component: {fileID: 2903985387904381183}
   m_Layer: 5
   m_Name: Scoreboard
   m_TagString: Scoreboard
@@ -3847,7 +3847,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2486842771107571833
+--- !u!114 &2903985387904381183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3856,8 +3856,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5168417550629855560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed003a8bdce2d0438a5b90d8ebb30ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 667d2a73d86d33b4f80a0540c8b5a87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneIndex: 1
   MainMenu: 0
