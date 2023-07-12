@@ -10,7 +10,7 @@ public class Wander : MonoBehaviour
     public float moveSpeed = 3f;
     public float rotSpeed = 300f;
 
-    [SerializeField] private bool iswandering = false;
+    private bool iswandering = false;
     private bool isRotatingLeft = false;
     private bool isRotatingRight = false;
     private bool iswalking = false;
@@ -32,21 +32,21 @@ public class Wander : MonoBehaviour
     // Update is called once per frame
     void Update () {
         // apply the desired movement or start the coroutine if not started
-        if (iswandering == false);
+        if (!iswandering)
         {
             StartCoroutine(Wandering());
         }
-        if(isRotatingRight == true)
+        if(isRotatingRight)
         {
             rb.velocity = Vector3.zero;
             transform.Rotate(transform.up * Time.deltaTime * rotSpeed);
         }
-        else if (isRotatingLeft == true)
+        else if (isRotatingLeft)
         {
             rb.velocity = Vector3.zero;
             transform.Rotate(transform.up * Time.deltaTime * -rotSpeed);
         }
-        else if(iswalking == true)
+        else if(iswalking)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
@@ -92,6 +92,7 @@ public class Wander : MonoBehaviour
             isRotatingRight = false;
             iswandering = false;
         }
+       
     }
 	/*public float duration;    //the max time of a walking session (set to ten)
     float elapsedTime   = 0f; //time since started walk

@@ -8,7 +8,6 @@ public class Gun : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float damage = 10f;
     [SerializeField] private float heal = 10f;
-    [SerializeField] private float range = 100f;
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private Color HealColor;
     [SerializeField] private Color DmgColor;
