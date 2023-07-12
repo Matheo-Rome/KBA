@@ -34,7 +34,7 @@ public class WanderHostile : MonoBehaviour
             isRotatingRight = false;
         }
 
-        if (iswandering == false && !ec.following);
+        if (iswandering == false && !ec.following)
         {
             StartCoroutine(Wandering());
         }

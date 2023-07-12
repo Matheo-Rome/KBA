@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Random = System.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Camera")] 
     [SerializeField] private PlayerCam pc;
-    [SerializeField] private float grappleFOV = 95f;
 
     [Header("Grappling")]
     [SerializeField] private Swing sw;
@@ -54,22 +54,12 @@ public class PlayerMovement : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDirection;
     private Rigidbody rb;
-    
-    [SerializeField] private MovementState state;
 
     [Header("Audio")]
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource landSound;
     [SerializeField] private AudioSource walkingSound;
-    public enum MovementState
-    {
-        WALKING,
-        SWINGING,
-        SPRINTING,
-        CROUCHING,
-        AIR,
-    }
-    
+
     public bool freeze;
     public bool activeGrapple;
     public bool swinging;
@@ -160,25 +150,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded && Input.GetButton("Sprint"))
         {
-            state = MovementState.SPRINTING;
             walkingSound.pitch = 2f;
             moveSpeed = sprintSpeed;
         }
         else if (swinging)
         {
-            state = MovementState.SWINGING;
             moveSpeed = swingSpeed;
         }
         else if (grounded)
         {
-            state = MovementState.WALKING;
             walkingSound.pitch = 1.5f;
             moveSpeed = walkSpeed;
         }
-        else
-        {
-            state = MovementState.AIR;
-        }
+       
     }
 
     private void MovePlayer()

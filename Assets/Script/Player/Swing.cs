@@ -130,7 +130,6 @@ public class Swing : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         float percentage;
-        float value;
         // go right
         if (Input.GetButton("Horizontal") && horizontalInput > 0)
         {
@@ -200,8 +199,7 @@ public class Swing : MonoBehaviour
     {
         if (joint != null)
             return;
-
-        RaycastHit sphereCastHit;
+        
         RaycastHit raycastHit; 
         
         Vector3 realHitPoint = Vector3.zero;
