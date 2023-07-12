@@ -1679,7 +1679,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fd3b62e39d48ff64180114bc4a9692b0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.22
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4280,6 +4280,8 @@ MonoBehaviour:
   HelpMenu: {fileID: 504056642}
   Controles: {fileID: 1819843830}
   Goal: {fileID: 213613371}
+  Bc: {fileID: 0}
+  Bce: {fileID: 0}
 --- !u!1 &1819843830
 GameObject:
   m_ObjectHideFlags: 0
