@@ -19,7 +19,8 @@ public class EnemyController : MonoBehaviour
     public bool following = false;
     public bool alreadyAttacked = false;
 
-    [Header("Score")] [SerializeField] private GameObject scoreboard;
+    [Header("Score")] 
+    [SerializeField] private GameObject scoreboard;
     [SerializeField] private Scoreboard sb;
     private GlobalAchievement ach;
 
