@@ -25,7 +25,7 @@ Unroll grapple: S or L
 Shoot in damage mode: Click Left  
 Shoot in healing mode: Click Wheel  
 
-# Start of game
+# Beginning of the game
 
 Be careful to look around to avoid being attacked in the back before you can start moving.  
 It is also advisable not to stay on the ground for too long.
